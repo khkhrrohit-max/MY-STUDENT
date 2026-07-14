@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MY STUDENT</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+overflow:hidden;
+background:#000814;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+/* Background */
+
+.bg{
+position:absolute;
+width:100%;
+height:100%;
+overflow:hidden;
+}
+
+.bg span{
+position:absolute;
+display:block;
+width:3px;
+height:3px;
+background:#00eaff;
+border-radius:50%;
+animation:move 8s linear infinite;
+box-shadow:
+0 0 10px #00eaff,
+0 0 20px #00eaff,
+0 0 40px #00eaff;
+}
+
+@keyframes move{
+
+0%{
+transform:translateY(100vh) scale(0);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-100vh) scale(2);
+opacity:0;
+}
+
+}
+
+/* Center */
+
+.center{
+
+z-index:10;
+text-align:center;
+
+}
+
+/* Logo */
+
+.logo{
+
+width:150px;
+height:150px;
+margin:auto;
+border-radius:50%;
+background:linear-gradient(135deg,#00eaff,#0066ff,#7b2fff);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:65px;
+font-weight:bold;
+color:white;
+
+box-shadow:
+
+0 0 30px cyan,
+0 0 60px blue,
+0 0 120px cyan;
+
+animation:
+pop 1.3s ease,
+pulse 2s infinite;
+
+}
+
+@keyframes pop{
+
+0%{
+transform:scale(.2) rotate(-360deg);
+opacity:0;
+}
+
+100%{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+@keyframes pulse{
+
+0%,100%{
+box-shadow:
+0 0 20px cyan,
+0 0 60px blue;
+}
+
+50%{
+box-shadow:
+0 0 50px cyan,
+0 0 120px blue,
+0 0 180px cyan;
+}
+
+}
+
+/* Title */
+
+h1{
+
+margin-top:35px;
+font-size:60px;
+font-weight:900;
+letter-spacing:8px;
+
+background:linear-gradient(90deg,#00eaff,#ffffff,#00eaff);
+background-size:300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+animation:shine 2s infinite linear;
+
+}
+
+@keyframes shine{
+
+0%{background-position:0%;}
+100%{background-position:300%;}
+
+}
+
+/* Subtitle */
+
+p{
+
+margin-top:15px;
+font-size:22px;
+color:#d8e6ff;
+letter-spacing:4px;
+
+opacity:0;
+animation:fade 1s forwards;
+animation-delay:.8s;
+
+}
+
+@keyframes fade{
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+/* Loading */
+
+.loading{
+
+width:350px;
+height:10px;
+margin:45px auto;
+border-radius:20px;
+background:#222;
+overflow:hidden;
+box-shadow:0 0 15px cyan;
+
+}
+
+.bar{
+
+height:100%;
+width:0%;
+
+background:linear-gradient(90deg,#00eaff,#00ff99,#00eaff);
+
+animation:load 3.5s linear forwards;
+
+}
+
+@keyframes load{
+
+100%{
+
+width:100%;
+
+}
+
+}
+
+/* Creator */
+
+.creator{
+
+position:absolute;
+bottom:40px;
+font-size:18px;
+color:#ffffff90;
+letter-spacing:3px;
+animation:blink 2s infinite;
+
+}
+
+@keyframes blink{
+
+50%{
+
+opacity:.3;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="bg" id="bg"></div>
+
+<div class="center">
+
+<div class="logo">
+🎓
+</div>
+
+<h1>MY STUDENT</h1>
+
+<p>Student Portal</p>
+
+<div class="loading">
+
+<div class="bar"></div>
+
+</div>
+
+</div>
+
+<div class="creator">
+Developed By RK
+</div>
+
+<script>
+
+/* Floating particles */
+
+const bg=document.getElementById("bg");
+
+for(let i=0;i<120;i++){
+
+let s=document.createElement("span");
+
+s.style.left=Math.random()*100+"%";
+
+s.style.animationDuration=4+Math.random()*6+"s";
+
+s.style.animationDelay=Math.random()*5+"s";
+
+s.style.opacity=Math.random();
+
+bg.appendChild(s);
+
+}
+
+/* Redirect */
+
+setTimeout(()=>{
+
+window.location.href="signup.html";
+
+},4000);
+
+</script>
+
+</body>
+</html>
