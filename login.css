@@ -1,0 +1,107 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    height:100vh;
+
+    display:flex;
+    flex-direction:column; /* Vertical */
+
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+
+    background:url("ChatGPT Image Jun 22, 2026, 09_31_59 AM.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+.main{
+    width:400px;
+    padding:40px;
+    text-align:center;
+
+    background:rgba(255,255,255,0.9);
+    border-radius:20px;
+}
+
+.mid{
+    width:400px;
+    padding:30px;
+    text-align:center;
+
+    background:rgba(255,255,255,0.9);
+    border-radius:20px;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    margin:10px 0;
+
+    border:2px solid #dbeafe;
+    border-radius:12px;
+
+    font-size:16px;
+
+    transition:0.3s;
+}
+
+input:focus{
+    outline:none;
+    border-color:#2563eb;
+
+    box-shadow:
+    0 0 10px rgba(37,99,235,0.3);
+}
+
+button{
+    width:100%;
+    padding:15px;
+
+    border:none;
+    border-radius:12px;
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #38bdf8
+    );
+
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+button:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 8px 20px rgba(37,99,235,0.4);
+}
+
+p{
+    margin-top:20px;
+    color:#334155;
+    font-size:15px;
+}
+
+a{
+    text-decoration:none;
+    color:#2563eb;
+    font-weight:bold;
+}
+
+a:hover{
+    color:#0ea5e9;
+    text-decoration:underline;
+}

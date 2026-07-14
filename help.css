@@ -1,0 +1,519 @@
+/*======================================
+        MY STUDENT HELP CENTER
+        Developed by RK
+======================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+    min-height:100vh;
+    color:#fff;
+}
+
+/*================ HEADER ================*/
+
+header{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo h1{
+    font-size:34px;
+    color:#fff;
+    font-weight:700;
+}
+
+.logo p{
+    color:#dbeafe;
+    margin-top:5px;
+}
+
+nav{
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    font-weight:500;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#ffd700;
+}
+
+/*================ HERO ================*/
+
+.hero{
+    width:90%;
+    max-width:1200px;
+    margin:50px auto;
+    text-align:center;
+    padding:70px 40px;
+    border-radius:25px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+.hero h1{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    line-height:1.9;
+    color:#e5e7eb;
+    font-size:18px;
+}
+
+.hero button{
+    margin-top:35px;
+    padding:16px 45px;
+    border:none;
+    border-radius:40px;
+    background:#ffd700;
+    color:#000;
+    font-size:18px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.hero button:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 25px rgba(0,0,0,.3);
+}
+
+/*================ CONTAINER ================*/
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/*================ CARD ================*/
+
+.card{
+    margin-top:40px;
+    background:rgba(255,255,255,.08);
+    border-radius:20px;
+    padding:35px;
+    backdrop-filter:blur(20px);
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h2{
+    font-size:30px;
+    margin-bottom:20px;
+    color:#ffd700;
+}
+
+.card p{
+    line-height:1.9;
+    color:#ecf0f1;
+    font-size:17px;
+}
+
+.card ul,
+.card ol{
+    margin-left:25px;
+    margin-top:15px;
+}
+
+.card li{
+    margin:12px 0;
+    font-size:17px;
+}
+
+/*================ GRID ================*/
+
+.grid{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:25px;
+}
+
+.info-card{
+    background:rgba(255,255,255,.08);
+    border-radius:20px;
+    padding:35px;
+    text-align:center;
+    transition:.4s;
+    backdrop-filter:blur(18px);
+}
+
+.info-card:hover{
+    transform:translateY(-10px);
+    background:rgba(255,255,255,.15);
+}
+
+.info-card i{
+    font-size:55px;
+    color:#ffd700;
+    margin-bottom:20px;
+}
+
+.info-card h3{
+    margin-bottom:15px;
+    font-size:24px;
+}
+
+.info-card p{
+    color:#e5e7eb;
+    line-height:1.8;
+}
+
+/*================ FAQ ================*/
+
+.faq{
+    margin-top:50px;
+}
+
+.faq h2{
+    text-align:center;
+    margin-bottom:30px;
+    font-size:35px;
+}
+
+.faq-item{
+    margin-bottom:18px;
+    border-radius:15px;
+    overflow:hidden;
+    background:rgba(255,255,255,.08);
+}
+
+.faq-question{
+    width:100%;
+    padding:20px;
+    border:none;
+    cursor:pointer;
+    background:none;
+    color:white;
+    text-align:left;
+    font-size:18px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.faq-question:hover{
+    background:rgba(255,255,255,.08);
+}
+
+.faq-answer{
+    display:none;
+    padding:20px;
+    color:#dbeafe;
+    border-top:1px solid rgba(255,255,255,.15);
+    line-height:1.8;
+}
+/*================ CONTACT SECTION ================*/
+
+.contact{
+    margin:60px 0;
+    padding:40px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+.contact h2{
+    text-align:center;
+    font-size:34px;
+    color:#ffd700;
+    margin-bottom:30px;
+}
+
+#contactForm{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+#contactForm input,
+#contactForm textarea{
+    width:100%;
+    padding:16px 18px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    font-size:16px;
+    background:rgba(255,255,255,.12);
+    color:#fff;
+    transition:.3s;
+}
+
+#contactForm input::placeholder,
+#contactForm textarea::placeholder{
+    color:#d1d5db;
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus{
+    border:2px solid #ffd700;
+    background:rgba(255,255,255,.18);
+    box-shadow:0 0 15px rgba(255,215,0,.3);
+}
+
+#contactForm textarea{
+    resize:vertical;
+    min-height:150px;
+}
+
+#contactForm button{
+    padding:16px;
+    border:none;
+    border-radius:12px;
+    background:#ffd700;
+    color:#000;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#contactForm button:hover{
+    transform:translateY(-4px);
+    background:#ffea70;
+    box-shadow:0 12px 25px rgba(0,0,0,.3);
+}
+
+#status{
+    margin-top:20px;
+    text-align:center;
+    font-size:18px;
+    font-weight:600;
+}
+
+/*================ FOOTER ================*/
+
+footer{
+    margin-top:70px;
+    padding:40px 20px;
+    text-align:center;
+    background:rgba(0,0,0,.25);
+    backdrop-filter:blur(10px);
+}
+
+footer h3{
+    font-size:30px;
+    margin-bottom:10px;
+    color:#ffd700;
+}
+
+footer p{
+    color:#dbeafe;
+    margin:8px 0;
+}
+
+/*================ BACK TO TOP BUTTON ================*/
+
+#topBtn{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:55px;
+    height:55px;
+    border:none;
+    border-radius:50%;
+    background:#ffd700;
+    color:#000;
+    font-size:22px;
+    cursor:pointer;
+    display:none;
+    z-index:999;
+    transition:.3s;
+}
+
+#topBtn:hover{
+    transform:scale(1.1);
+    box-shadow:0 10px 20px rgba(0,0,0,.3);
+}
+
+/*================ SCROLLBAR ================*/
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#0f172a;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#ffd700;
+    border-radius:10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#ffea70;
+}
+
+/*================ ANIMATIONS ================*/
+
+.hero,
+.card,
+.info-card,
+.contact,
+.faq-item{
+    animation:fadeUp .8s ease;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/*================ RESPONSIVE ================*/
+
+@media(max-width:992px){
+
+header{
+    flex-direction:column;
+    gap:20px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:48px;
+}
+
+.hero p{
+    font-size:17px;
+}
+
+.contact{
+    padding:30px;
+}
+
+}
+
+@media(max-width:768px){
+
+nav{
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+}
+
+.hero{
+    padding:50px 25px;
+}
+
+.hero h1{
+    font-size:38px;
+}
+
+.card{
+    padding:25px;
+}
+
+.card h2{
+    font-size:26px;
+}
+
+.contact h2{
+    font-size:28px;
+}
+
+.info-card{
+    padding:25px;
+}
+
+footer h3{
+    font-size:24px;
+}
+
+}
+
+@media(max-width:480px){
+
+.logo h1{
+    font-size:28px;
+}
+
+.logo p{
+    font-size:14px;
+}
+
+.hero h1{
+    font-size:32px;
+}
+
+.hero p{
+    font-size:15px;
+}
+
+.hero button{
+    width:100%;
+}
+
+.card h2{
+    font-size:22px;
+}
+
+.card p,
+.card li{
+    font-size:15px;
+}
+
+.contact{
+    padding:20px;
+}
+
+#contactForm input,
+#contactForm textarea{
+    font-size:15px;
+}
+
+#contactForm button{
+    font-size:16px;
+}
+
+#topBtn{
+    width:48px;
+    height:48px;
+    font-size:18px;
+    right:15px;
+    bottom:15px;
+}
+
+}
+
+/*================ END OF FILE ================*/

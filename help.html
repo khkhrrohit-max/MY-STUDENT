@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MY STUDENT | Help Center</title>
+
+<link rel="stylesheet" href="help.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+</head>
+
+<body>
+
+<button id="topBtn">
+<i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<header>
+
+<div class="logo">
+
+<h1>MY STUDENT</h1>
+
+<p>Student Portal Help Center</p>
+
+</div>
+
+<nav>
+
+<a href="home.html">Home</a>
+
+<a href="course.html">Courses</a>
+
+
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>Need Help?</h1>
+
+<p>
+
+Welcome to MY STUDENT Help Center.
+
+Find answers, learn how to use the portal, and contact support anytime.
+
+</p>
+
+<a href="#contact">
+
+<button>
+
+Contact Support
+
+</button>
+
+</a>
+
+</section>
+
+<div class="container">
+
+<section class="card">
+
+<h2>
+
+<i class="fa-solid fa-circle-info"></i>
+
+About MY STUDENT
+
+</h2>
+
+<p>
+
+MY STUDENT is an online student portal created to provide study materials,
+
+semester notes, previous year papers, academic calendars, and useful
+
+resources in one place.
+
+Our goal is to make learning easier and faster for every student.
+
+</p>
+
+</section>
+
+<section class="grid">
+
+<div class="info-card">
+
+<i class="fa-solid fa-book"></i>
+
+<h3>Study Material</h3>
+
+<p>
+
+Access semester-wise notes, PDFs and books.
+
+</p>
+
+</div>
+
+<div class="info-card">
+
+<i class="fa-solid fa-calendar-days"></i>
+
+<h3>Academic Calendar</h3>
+
+<p>
+
+Stay updated with your academic schedule.
+
+</p>
+
+</div>
+
+<div class="info-card">
+
+<i class="fa-solid fa-file-pdf"></i>
+
+<h3>PDF Library</h3>
+
+<p>
+
+Download notes in one click.
+
+</p>
+
+</div>
+
+<div class="info-card">
+
+<i class="fa-solid fa-user-graduate"></i>
+
+<h3>Student Friendly</h3>
+
+<p>
+
+Simple interface for every student.
+
+</p>
+
+</div>
+
+</section>
+
+<section class="card">
+
+<h2>
+
+<i class="fa-solid fa-star"></i>
+
+Benefits
+
+</h2>
+
+<ul>
+
+<li>Easy Navigation</li>
+
+<li>Free Study Material</li>
+
+<li>Fast PDF Access</li>
+
+<li>Time Saving</li>
+
+<li>Responsive Design</li>
+
+<li>Available Anytime</li>
+
+</ul>
+
+</section>
+
+<section class="card">
+
+<h2>
+
+<i class="fa-solid fa-list-check"></i>
+
+How to Use
+
+</h2>
+
+<ol>
+
+<li>Login into your account.</li>
+
+<li>Open Dashboard.</li>
+
+<li>Select Course.</li>
+
+<li>Choose Semester.</li>
+
+<li>Open PDF Notes.</li>
+
+<li>Download Study Material.</li>
+
+<li>Logout after use.</li>
+
+</ol>
+
+</section>
+
+<section class="faq">
+
+<h2>
+
+Frequently Asked Questions
+
+</h2>
+
+<div class="faq-item">
+
+<button class="faq-question">
+
+How can I login?
+
+</button>
+
+<div class="faq-answer">
+
+Use your registered email and password.
+
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<button class="faq-question">
+
+Where are Notes?
+
+</button>
+
+<div class="faq-answer">
+
+Open Course page and choose semester.
+
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<button class="faq-question">
+
+PDF not opening?
+
+</button>
+
+<div class="faq-answer">
+
+Check internet connection or verify PDF link.
+
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<button class="faq-question">
+
+Forgot Password?
+
+</button>
+
+<div class="faq-answer">
+
+Contact administrator.
+
+</div>
+
+</div>
+
+</section>
+
+<section id="contact" class="contact">
+
+<h2>
+
+Contact Support
+
+</h2>
+
+<form id="contactForm">
+
+<input
+type="text"
+id="name"
+placeholder="Your Name"
+required>
+
+<input
+type="email"
+id="email"
+placeholder="Email Address"
+required>
+
+<input
+type="text"
+id="subject"
+placeholder="Subject"
+required>
+
+<textarea
+
+id="message"
+rows="6"
+placeholder="Write your question..."
+required>
+
+</textarea>
+
+<button
+type="submit">
+
+Send Message
+
+</button>
+
+</form>
+
+<div id="status"></div>
+
+</section>
+
+</div>
+
+<footer>
+
+<h3>
+ROHIT KHOKHAR
+
+</h3>
+
+<p>
+
+Helping Students Learn Better.
+
+</p>
+
+<p>
+
+© 2026 MY STUDENT | Developed by RK
+
+</p>
+
+</footer>
+
+<script src="help.js"></script>
+
+</body>
+</html>

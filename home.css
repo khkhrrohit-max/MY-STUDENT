@@ -1,0 +1,212 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+
+    background-image:url("ChatGPT Image Jun 22, 2026, 09_31_59 AM.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+}
+
+/* WEBSITE NAME */
+
+
+.bar{
+    text-align:center;
+    padding:20px;
+
+    background:rgba(255,255,255,0.75);
+
+    font-size:38px;
+    font-weight:bold;
+    color:#003b95;
+
+    letter-spacing:3px;
+
+    border-bottom:3px solid #0057d9;
+}
+
+/* NAVBAR */
+
+.navbar{
+    width:95%;
+    margin:15px auto;
+
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+
+    padding:20px;
+
+    background:rgba(255,255,255,0.65);
+
+    border-radius:20px;
+
+    backdrop-filter:blur(5px);
+}
+
+.navbar p{
+    color:#003b95;
+    font-weight:bold;
+}
+
+.navbar button{
+    border:none;
+
+    padding:12px 20px;
+
+    background:#0057d9;
+    color:white;
+
+    border-radius:10px;
+
+    cursor:pointer;
+}
+
+
+.navbar button:hover{
+    background:#1d4ed8;
+    transform:translateY(-3px);
+}
+
+/* SIDEBAR */
+
+.menu{
+    width:240px;
+
+    margin:15px;
+
+    background:rgba(255,255,255,0.65);
+
+    border-radius:20px;
+
+    padding:20px;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:15px;
+}
+
+.menu button{
+    border:none;
+
+    padding:15px;
+
+    background:#0057d9;
+    color:white;
+
+    border-radius:10px;
+
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.menu button:hover{
+    background:#003b95;
+}
+
+
+/* CONTENT */
+
+.content{
+    margin-left:270px;
+    margin-top:-420px;
+
+    padding:20px;
+}
+
+/* DASHBOARD CARDS */
+
+.card{
+    background:rgba(255,255,255,0.70);
+
+    padding:25px;
+
+    border-radius:20px;
+
+    color:#003b95;
+}
+.card h2{
+    margin-bottom:10px;
+}
+
+/* FOOTER */
+
+.footer{
+    margin-top:30px;
+
+    background:rgba(255,255,255,0.75);
+
+    text-align:center;
+
+    padding:20px;
+
+    color:#003b95;
+
+    font-weight:bold;
+}
+
+.footer p{
+    margin:8px 0;
+}
+
+/* ICONS */
+
+i{
+    margin-left:8px;
+}
+
+/* TABLET */
+
+@media(max-width:992px){
+
+    .content{
+        margin-left:0;
+        margin-top:20px;
+    }
+
+    .menu{
+        width:95%;
+        margin:auto;
+
+        flex-direction:row;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .menu button{
+        width:220px;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .bar{
+        font-size:28px;
+    }
+
+    .navbar{
+        flex-direction:column;
+    }
+
+    .navbar p,
+    .navbar button{
+        width:100%;
+        text-align:center;
+    }
+
+    .menu button{
+        width:100%;
+    }
+}

@@ -1,0 +1,211 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:url("ChatGPT Image Jun 22, 2026, 09_31_59 AM.png");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+/* Logo */
+
+.logo{
+    width:100%;
+    background:rgba(0,50,120,.85);
+    backdrop-filter:blur(10px);
+    color:white;
+    text-align:center;
+    padding:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
+}
+
+.logo h1{
+    font-size:36px;
+    letter-spacing:2px;
+}
+
+.logo p{
+    margin-top:8px;
+    color:#dbeafe;
+    font-size:16px;
+}
+
+/* Creator */
+
+.creator{
+    width:100%;
+    text-align:right;
+    padding:10px 30px;
+    color:white;
+    font-size:15px;
+    font-weight:600;
+}
+
+/* Semester Dropdown */
+
+#sem{
+    width:320px;
+    margin-top:40px;
+    padding:15px;
+    font-size:18px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    background:white;
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
+    cursor:pointer;
+}
+
+/* Paper List */
+
+#paperList{
+    width:90%;
+    margin:40px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+/* Paper Card */
+
+.paper-card{
+    background:rgba(255,255,255,.9);
+    border-radius:18px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    transition:.4s;
+}
+
+.paper-card:hover{
+    transform:translateY(-8px);
+}
+
+.paper-card h3{
+    color:#003366;
+    margin-bottom:18px;
+}
+
+.paper-card a{
+    display:inline-block;
+    text-decoration:none;
+    background:#0d6efd;
+    color:white;
+    padding:12px 20px;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.paper-card a:hover{
+    background:#003b9b;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .logo h1{
+        font-size:28px;
+    }
+
+    #sem{
+        width:90%;
+    }
+
+    #paperList{
+        width:95%;
+    }
+}
+
+#sem{
+    width: 90%;
+    max-width: 400px;
+    display: block;
+    margin: 20px auto;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+#paperList{
+    width: 90%;
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+.paper{
+    background: #fff;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.paper span{
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.paper a{
+    text-decoration: none;
+}
+
+.paper button{
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.paper a button{
+    background: #2196f3;
+    color: white;
+}
+
+.paper a button:hover{
+    transform: scale(1.05);
+}
+
+.paper button:last-child{
+    background: #4caf50;
+    color: white;
+}
+
+.paper button:last-child:hover{
+    transform: scale(1.05);
+}
+
+@media(max-width:600px){
+
+    .paper{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .paper button{
+        width: 100%;
+    }
+
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PAPERS</title>
+    <link rel="stylesheet" href="paper.css">
+</head>
+<body>
+   <div class="navbar">
+
+    <div class="logo">
+        <h1>MY STUDENT</h1>
+        <p>Student Portal</p>
+    </div>
+
+    <div class="creator">
+        By RK
+    </div>
+
+</div>
+    <div class="papers">
+    <h2>📚 PAPER  SECTION</h2>
+
+    <select id="sem" onchange="showPapers()">
+        <option value="">Select Semester</option>
+        <option value="sem1">1st Semester</option>
+        <option value="sem2">2nd Semester</option>
+        <option value="sem3">3rd Semester</option>
+        <option value="sem4">4th Semester</option>
+        <option value="sem5">5th Semester</option>
+        <option value="sem6">6th Semester</option>
+    </select>
+
+    <div id="paperList"></div>
+</div>
+<script>
+
+const papers = {
+    sem1: [
+        {name:"ASS 1", file:"https://drive.google.com/file/d/1Tr7L26faghN8nYhQTcfeKU1rvcJSnM-M/view?usp=sharing"},
+        {name:"ASS 2", file:"https://drive.google.com/file/d/1dE_oKO4GbkEycKthiKA7wxEoXy9Bz_J7/view?usp=sharing"},
+        {name:"ASS 2", file:"https://drive.google.com/file/d/1lsahtL68sA3KJrhsVKuBaenUXxBuEF48/view?usp=sharing"},
+        {name:"END SEM", file:"https://drive.google.com/file/d/1FLs0OZ3_IluWfpL5lCeMTvTndNq8eJtA/view?usp=sharing"},
+        {name:"END SEM", file:"https://drive.google.com/file/d/1PnY1WqunsIsehDLxXuk4VzGHwSGExrbr/view?usp=sharing"}
+    ],
+
+    sem2: [
+        {name:"ASS 1", file:"https://drive.google.com/file/d/1KdseMFvtnItnQjU9dIc3_puxPcoMceFg/view?usp=sharing"},
+        {name:"ASS 1(math)", file:"https://drive.google.com/file/d/1PzH30poPefRDbldYap7IaCBdc_ZjiObP/view?usp=sharing"},
+        {name:"ASS 1(2024)", file:"https://drive.google.com/file/d/1Umyr4tHBbHwxfpqtOaVwc7Cp7l6daiH2/view?usp=sharing"},
+        {name:"ASS 2", file:"https://drive.google.com/file/d/1FcpsFjbATFQcGMDL-y9AD9e_4PM9UwTU/view?usp=sharing"},
+        {name:"END SEM", file:"https://drive.google.com/file/d/1_pOf156VMsYGtKkKXImTTx5Z935dTg4L/view?usp=sharing"}
+    ],
+
+    sem3: [
+        {name:"PDF 7", file:"pdf7.pdf"},
+        {name:"PDF 8", file:"pdf8.pdf"},
+        {name:"PDF 9", file:"pdf9.pdf"}
+    ],
+
+    sem4: [
+        {name:"PDF 10", file:"pdf10.pdf"},
+        {name:"PDF 11", file:"pdf11.pdf"},
+        {name:"PDF 12", file:"pdf12.pdf"}
+    ],
+
+    sem5: [
+        {name:"PDF 13", file:"pdf13.pdf"},
+        {name:"PDF 14", file:"pdf14.pdf"},
+        {name:"PDF 15", file:"pdf15.pdf"}
+    ],
+
+    sem6: [
+        {name:"PDF 16", file:"pdf16.pdf"},
+        {name:"PDF 17", file:"pdf17.pdf"},
+        {name:"PDF 18", file:"pdf18.pdf"}
+    ]
+};
+
+function showPapers() {
+
+    const sem = document.getElementById("sem").value;
+    const paperList = document.getElementById("paperList");
+
+    paperList.innerHTML = "";
+
+    if (!sem) return;
+
+    papers[sem].forEach(paper => {
+
+        paperList.innerHTML += `
+        <div class="paper">
+            <span>${paper.name}</span>
+
+            <a href="${paper.file}" target="_blank">
+                <button>Open PDF</button>
+            </a>
+
+       
+
+        </div>`;
+    });
+}
+
+</script>
+
+
+<DIV class="footer">
+    <p>© 2026 My Student. Government Approved & Recognized Institution. All Rights Reserved.</p>
+        <p>email address :- khkhrrohit@gmail.com</p>
+        <p>by ROHIT KHOKHAR</p>
+
+</DIV>
+<script src="paper.js"></script>
+</body>
+</html>

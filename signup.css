@@ -1,0 +1,163 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:30px;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    ),
+    url("ChatGPT Image Jun 22, 2026, 09_31_59 AM.png");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+/* Top Welcome Box */
+.main{
+    width:90%;
+    max-width:700px;
+
+    text-align:center;
+
+    padding:25px;
+    margin-bottom:25px;
+
+    background:rgba(255,255,255,0.95);
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+
+    animation:topDown 1s ease;
+}
+
+.main h1{
+    color:#005eff;
+    margin-bottom:10px;
+}
+
+.main h2{
+    color:#444;
+}
+
+/* Form Box */
+.details{
+    width:90%;
+    max-width:500px;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+
+    animation:bottomUp 1s ease;
+}
+
+/* Inputs */
+.details input{
+    width:100%;
+    padding:15px;
+
+    border:2px solid #d0d7ff;
+    border-radius:12px;
+
+    font-size:16px;
+
+    transition:0.3s;
+}
+
+.details input:focus{
+    outline:none;
+
+    border-color:#005eff;
+
+    box-shadow:0 0 10px rgba(0,94,255,0.3);
+}
+
+/* Button */
+button{
+    width:100%;
+
+    margin-top:15px;
+
+    padding:15px;
+
+    border:none;
+    border-radius:12px;
+
+    background:linear-gradient(
+        135deg,
+        #005eff,
+        #00bfff
+    );
+
+    color:white;
+
+    font-size:17px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+button:hover{
+    transform:translateY(-3px);
+
+    box-shadow:0 8px 20px rgba(0,94,255,0.4);
+}
+
+/* Login Text */
+p{
+    text-align:center;
+    margin-top:15px;
+    color:#444;
+}
+
+a{
+    color:#005eff;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+a:hover{
+    text-decoration:underline;
+}
+
+/* Animations */
+@keyframes topDown{
+    from{
+        opacity:0;
+        transform:translateY(-50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes bottomUp{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}

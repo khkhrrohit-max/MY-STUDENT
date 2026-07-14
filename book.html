@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOKS</title>
+    <link rel="stylesheet" href="book.css">
+</head>
+<body>
+   <div class="navbar">
+
+    <div class="logo">
+        <h1>MY STUDENT</h1>
+        <p>Student Portal</p>
+    </div>
+
+    <div class="creator">
+        By RK
+    </div>
+
+</div>
+    <div class="books">
+    <h2>📚 BOOKS SECTION</h2>
+
+    <select id="sem" onchange="showBooks()">
+        <option value="">Select Semester</option>
+        <option value="sem1">1st Semester</option>
+        <option value="sem2">2nd Semester</option>
+        <option value="sem3">3rd Semester</option>
+        <option value="sem4">4th Semester</option>
+        <option value="sem5">5th Semester</option>
+        <option value="sem6">6th Semester</option>
+        <option value="sem7">7th Semester</option>
+    </select>
+
+    <div id="bookList"></div>
+</div>
+<script>
+
+const books = {
+    sem1: [
+        {name:"C programm", file:"https://drive.google.com/file/d/1sCITmUuj4QWqzPjR7nVqwCYoW3Jdnn8v/view?usp=sharing"},
+        {name:"EC", file:"https://drive.google.com/file/d/1KosmBFBwmCLkNXiD_FUC0tBxWVtttIbE/view?usp=sharing"},
+        {name:"ENGLISH", file:"https://drive.google.com/file/d/1Jnb3Rq7VHY66ThMJW11XMldrxOcmpql0/view?usp=sharing"},
+         {name:"ENGLISH 2", file:"https://drive.google.com/file/d/18varwpoVMpNW-BRZyFgk4DJAA3e3XFZv/view?usp=sharing"},
+          {name:"JAPANESE", file:"https://drive.google.com/file/d/1nVsP5SyVbP3Injk3Y4RjEId-PJ8MU96r/view?usp=sharing"},
+           {name:"MATH", file:"https://drive.google.com/file/d/1WU1o4kZjeVTtuy2vz8MBIqAov5SUffHP/view?usp=sharing"},
+            {name:"D D", file:"https://drive.google.com/file/d/1Y39t7WeTiifX7ZTEF_S31gjeQK_WuedN/view?usp=sharing"},
+            {name:"PHYSICS", file:"https://drive.google.com/file/d/1iMZulItfc3r0xq0yAgEAJxO9NXgGQbVu/view?usp=sharing"}
+    ],
+
+    sem2: [
+        {name:"MATH", file:"https://drive.google.com/file/d/1Ex3PJkOpQtR-GeW8YjIq02IZC7XvTOGV/view?usp=sharing"},
+        {name:"C DSA", file:"https://drive.google.com/file/d/1HORyB4ExQAt9SlQdx4dp3bO260lTSK7u/view?usp=sharing"},
+        {name:"MATH 2", file:"https://drive.google.com/file/d/1gXRMHQvvhXmHUGqdHhMGMs0mjGs75SpB/view?usp=sharing"},
+        {name:"EC", file:"https://drive.google.com/file/d/1RHbi_49fcwQlTisFStmX9JwCc15txHTz/view?usp=drive_link"},
+        {name:"PHYSICS", file:"https://drive.google.com/file/d/1iFdD0qFEurlzCkK6NiAlvyx7RzLF3Q3M/view?usp=sharing"}
+    ],
+
+    sem3: [
+        {name:"Design and Analysis of Algorithms ", file:"https://drive.google.com/file/d/1VAfYxz5YyyRyysObR1AElFm8W0HRRb-l/view?usp=sharing"},
+        {name:"Object Oriented Programming", file:"https://drive.google.com/file/d/1jlFAuTfWTsFvY2rrHGU87_Ynedb53yb2/view?usp=sharing"},
+        {name:"Probability and Random Processes ", file:"https://drive.google.com/file/d/1rzjOVEN8fG99gd3OXiQv4Meo-bn7tBVN/view?usp=sharing"},
+        {name:"Signals and Systems ", file:"https://drive.google.com/file/d/19F1LjJCESoiNPRfanKDD2XRN86DU2EDv/view?usp=sharing"},
+        {name:"Web Technology ", file:"https://drive.google.com/file/d/1CCz1YD6LOHu5ioF8riVWe3-LVAmhcp-N/view?usp=sharing"},
+        {name:"Microcontroller and Microprocessor  ", file:"https://drive.google.com/file/d/17-pSBpq76STE14uB45S4Rh2DD-vvn8eA/view?usp=sharing"}
+    ],
+
+    sem4: [
+        {name:"Artificial Intelligence ", file:"https://drive.google.com/file/d/1xi16sYH5PFCIBJr-3dLE0XnSMGt5n740/view?usp=sharing"},
+        {name:"Discrete Mathematics ", file:"https://drive.google.com/file/d/11HPB45n6GClO21otjyL46lYY3iADRCxu/view?usp=sharing"},
+        {name:"Database Management Systems ", file:"https://drive.google.com/file/d/1KaplDXQNA8fFxtOw9qQOHXswKFQOGyPp/view?usp=sharing"},
+        {name:"Operating Systems ", file:"https://drive.google.com/file/d/1wjfdc789JgPNCCbxVZ6WIR9kpUXp2eG-/view?usp=sharing"},
+        {name:"Software Engineering ", file:"https://drive.google.com/file/d/1ywKGF8T6HPcfI4QPVPIX1qPy4wH24k8B/view?usp=sharing"},
+         {name:"Theory of Computing ", file:"https://drive.google.com/file/d/1ogWsdYqfywrZ9HpvMkaenRY4d9tcKq7C/view?usp=sharing"}
+    ],
+
+    sem5: [
+        {name:"Computer Organization and Architecture ", file:"https://drive.google.com/file/d/1OSHKWxJSgSAO0tHcKJtDezR9R9mzZ-KM/view?usp=sharing"},
+        {name:"Compiler Design ", file:"https://drive.google.com/file/d/1yWDa_UcXonUASOsSZwK6fJEGhy4ezrVv/view?usp=sharing"},
+        {name:"Computer Networks ", file:"https://drive.google.com/file/d/1lsahtL68sA3KJrhsVKuBaenUXxBuEF48/view?usp=sharing"},
+        {name:"HSS Elective  II ", file:"pdf14.pdf"},
+        {name:" Professional Elective  I ", file:"pdf14.pdf"},
+        {name:"Open Elective - I ", file:"pdf15.pdf"}
+    ],
+
+    sem6: [
+        {name:"Computer Graphics ", file:"https://drive.google.com/file/d/1LnSzDa-DDWJft4AvxoNaOTz7FN-CiDfB/view?usp=sharing"},
+        {name:"Statistical Machine Learning ", file:"https://drive.google.com/file/d/1C-VTaqxFWpdhrMYvazQTd97LvzT0GCTD/view?usp=sharing"},
+        {name:"Optimization Techniques ", file:"https://drive.google.com/file/d/1coO37QLxmuI8dH2XLTa7uYHRRYlgf4J3/view?usp=sharing"},
+        {name:"Professional Elective  II ", file:"pdf17.pdf"},
+        {name:"rofessional Elective  III ", file:"pdf17.pdf"},
+        {name:"pen Elective  II ", file:"pdf18.pdf"}
+    ],
+    sem7: [
+        {name:"Cloud Computing ", file:"https://drive.google.com/file/d/1uy6ZLRVRY9z3OTCOngFZOS0vMyja3lqq/view?usp=sharing"},
+        {name:"Computer and Network Security", file:"https://drive.google.com/file/d/1fEN8F4AHrhvCrJ53sAailteBXZODl7TM/view?usp=sharing"},
+        {name:"Professional Elective  IV ", file:"pdf18.pdf"}
+    ]
+};
+
+function showBooks() {
+
+    const sem = document.getElementById("sem").value;
+    const bookList = document.getElementById("bookList");
+
+    bookList.innerHTML = "";
+
+    if (!sem) return;
+
+    books[sem].forEach(book => {
+
+        bookList.innerHTML += `
+        <div class="book">
+            <span>${book.name}</span>
+
+            <a href="${book.file}" target="_blank">
+                <button>Open PDF</button>
+            </a>
+
+    
+        </div>`;
+    });
+}
+
+</script>
+
+
+
+<DIV class="footer">
+    <p>© 2026 My Student. Government Approved & Recognized Institution. All Rights Reserved.</p>
+        <p>email address :- khkhrrohit@gmail.com</p>
+        <p>by ROHIT KHOKHAR</p>
+
+</DIV>
+<script src="bookl.js"></script>
+</body>
+</html>
