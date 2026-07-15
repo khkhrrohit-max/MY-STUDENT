@@ -17,14 +17,15 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-overflow:hidden;
-background:#000814;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
+    overflow:hidden;
+    background:#000814;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    width:100%;
+    padding:20px;
 }
-
 /* Background */
 
 .bg{
@@ -69,38 +70,53 @@ opacity:0;
 /* Center */
 
 .center{
+    z-index:10;
+    text-align:center;
+    width:100%;
+    max-width:700px;
+    padding:20px;
+  animation:floatCenter 5s ease-in-out infinite;
 
-z-index:10;
-text-align:center;
+}
 
+@keyframes floatCenter{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-10px);
+}
 }
 
 /* Logo */
 
 .logo{
 
-width:150px;
-height:150px;
+width:clamp(90px,18vw,170px);
+height:clamp(90px,18vw,170px);
+
 margin:auto;
 border-radius:50%;
+
 background:linear-gradient(135deg,#00eaff,#0066ff,#7b2fff);
 
 display:flex;
 justify-content:center;
 align-items:center;
 
-font-size:65px;
+font-size:clamp(40px,7vw,70px);
 font-weight:bold;
 color:white;
 
 box-shadow:
-
 0 0 30px cyan,
 0 0 60px blue,
 0 0 120px cyan;
 
 animation:
-pop 1.3s ease,
+pop 1.2s ease,
 pulse 2s infinite;
 
 }
@@ -140,17 +156,23 @@ box-shadow:
 
 h1{
 
-margin-top:35px;
-font-size:60px;
+margin-top:30px;
+
+font-size:clamp(32px,7vw,65px);
+
 font-weight:900;
-letter-spacing:8px;
+
+letter-spacing:clamp(2px,1vw,8px);
+
+line-height:1.2;
 
 background:linear-gradient(90deg,#00eaff,#ffffff,#00eaff);
 background-size:300%;
+
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 
-animation:shine 2s infinite linear;
+animation:shine 2s linear infinite;
 
 }
 
@@ -166,12 +188,17 @@ animation:shine 2s infinite linear;
 p{
 
 margin-top:15px;
-font-size:22px;
+
+font-size:clamp(16px,2.5vw,24px);
+
+letter-spacing:clamp(1px,.6vw,4px);
+
 color:#d8e6ff;
-letter-spacing:4px;
 
 opacity:0;
+
 animation:fade 1s forwards;
+
 animation-delay:.8s;
 
 }
@@ -190,12 +217,18 @@ opacity:1;
 
 .loading{
 
-width:350px;
+width:min(90%,420px);
+
 height:10px;
-margin:45px auto;
+
+margin:40px auto;
+
 border-radius:20px;
+
 background:#222;
+
 overflow:hidden;
+
 box-shadow:0 0 15px cyan;
 
 }
@@ -226,11 +259,24 @@ width:100%;
 .creator{
 
 position:absolute;
-bottom:40px;
-font-size:18px;
+
+bottom:25px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+font-size:clamp(12px,2vw,18px);
+
 color:#ffffff90;
-letter-spacing:3px;
+
+letter-spacing:2px;
+
+text-align:center;
+
 animation:blink 2s infinite;
+
+padding:0 15px;
 
 }
 
@@ -243,6 +289,73 @@ opacity:.3;
 }
 
 }
+  <style>
+
+/* Your existing CSS */
+
+*{
+...
+}
+
+body{
+...
+}
+
+/* All your other CSS */
+
+@keyframes blink{
+
+50%{
+opacity:.3;
+}
+
+}
+
+/* ============================= */
+/* STEP 10 - Responsive CSS */
+/* ============================= */
+
+/* Tablet */
+
+@media (max-width:992px){
+
+.loading{
+height:8px;
+}
+
+}
+
+/* Mobile */
+
+@media (max-width:768px){
+
+body{
+padding:15px;
+}
+
+.creator{
+bottom:15px;
+}
+
+}
+
+/* Small Phones */
+
+@media (max-width:480px){
+
+.loading{
+height:6px;
+}
+
+.logo{
+box-shadow:
+0 0 20px cyan,
+0 0 40px blue;
+}
+
+}
+
+</style>
 
 </style>
 
@@ -280,7 +393,9 @@ Developed By RK
 
 const bg=document.getElementById("bg");
 
-for(let i=0;i<120;i++){
+const particles = window.innerWidth < 768 ? 60 : 120;
+
+for(let i=0;i<particles;i++){
 
 let s=document.createElement("span");
 
