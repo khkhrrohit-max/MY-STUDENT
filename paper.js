@@ -18,6 +18,9 @@ sem1: [
         {name:"ASS 1(2024)", file:"https://drive.google.com/file/d/1Umyr4tHBbHwxfpqtOaVwc7Cp7l6daiH2/view?usp=sharing"},
         {name:"ASS 2", file:"https://drive.google.com/file/d/1FcpsFjbATFQcGMDL-y9AD9e_4PM9UwTU/view?usp=sharing"},
         {name:"END SEM", file:"https://drive.google.com/file/d/1_pOf156VMsYGtKkKXImTTx5Z935dTg4L/view?usp=sharing"}
+        {name:"1ST ASSI 2025", file:"https://drive.google.com/file/d/1DyQ4_0cgE1l05oYia94W_nc_-MBB26bX/view?usp=sharing"},
+        {name:"2ND ASSI 2025", file:"https://drive.google.com/file/d/15DRcfsTfVS6bzUZBb-yEdz63lCPo64Kp/view?usp=sharing"},
+        {name:"END SEM 2025", file:"https://drive.google.com/file/d/1VuTnFuD8ntb0KVUKsb_55ISRTUXXTUTI/view?usp=sharing"}  
     ],
 
     sem3: [
