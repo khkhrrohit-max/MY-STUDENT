@@ -5,8 +5,12 @@ sem1: [
         {name:"ASS 2", file:"https://drive.google.com/file/d/1dE_oKO4GbkEycKthiKA7wxEoXy9Bz_J7/view?usp=sharing"},
         {name:"ASS 2", file:"https://drive.google.com/file/d/1lsahtL68sA3KJrhsVKuBaenUXxBuEF48/view?usp=sharing"},
         {name:"END SEM", file:"https://drive.google.com/file/d/1FLs0OZ3_IluWfpL5lCeMTvTndNq8eJtA/view?usp=sharing"},
+       
         {name:"END SEM", file:"https://drive.google.com/file/d/1PnY1WqunsIsehDLxXuk4VzGHwSGExrbr/view?usp=sharing"}
-    ],
+         {name:"1ST ASSI 2025", file:"https://drive.google.com/file/d/1rWp45RxvCcHcw5dLHQx2waXbErwVkzay/view?usp=sharing"},
+        {name:"2NS ASSI 2025", file:"https://drive.google.com/file/d/1pka4gS4yKMc9uENbNTs-mBVSNxMDGjch/view?usp=sharing"},
+        {name:"END SEM 2025", file:"https://drive.google.com/file/d/1p7WuezcdLb4VlxTyZ0b3xjnGvvbc0yMk/view?usp=sharing"}  
+],
 
     sem2: [
         {name:"ASS 1", file:"https://drive.google.com/file/d/1KdseMFvtnItnQjU9dIc3_puxPcoMceFg/view?usp=sharing"},
