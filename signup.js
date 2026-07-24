@@ -26,11 +26,13 @@ function sendOTP() {
             otp: generatedOTP
         }
     )
-    .then(function () {
+  .then(function () {
 
-        alert("OTP Sent Successfully");
+    alert("OTP Sent Successfully");
 
-    })
+    startOTPTimer();
+
+})
     .catch(function (error) {
 
         console.log(error);
@@ -39,7 +41,32 @@ function sendOTP() {
 
     });
 }
+// 30 Seconds Timer
+function startOTPTimer() {
 
+    const btn = document.getElementById("sendOtpBtn");
+
+    let timeLeft = 30;
+
+    btn.disabled = true;
+    btn.innerText = `Resend OTP (${timeLeft}s)`;
+
+    const timer = setInterval(function () {
+
+        timeLeft--;
+
+        btn.innerText = `Resend OTP (${timeLeft}s)`;
+
+        if (timeLeft <= 0) {
+
+            clearInterval(timer);
+
+            btn.disabled = false;
+            btn.innerText = "SEND OTP";
+        }
+
+    }, 1000);
+}
 // VERIFY OTP
 
 function verifyOTP() {
