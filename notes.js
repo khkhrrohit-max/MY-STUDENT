@@ -55,7 +55,7 @@ sem1: [
 
     sem3: [
          {name:"SIGNALS AND SYSTEMS (OTHER COLLEGE)", file:"https://drive.google.com/file/d/1v3Z2yTTE0-nClLWWWgNdmNgpQTRoy5Q6/view?usp=sharing"},
-        {name:"PDF 8", file:"pdf8.pdf"},
+        {name:"HTML Notes", file:"https://drive.google.com/file/d/10y76MAiYDOkI6Frv10R2SfLWHZbXyVDd/view?usp=drivesdk"},
         {name:"PDF 9", file:"pdf9.pdf"}
     ],
 
