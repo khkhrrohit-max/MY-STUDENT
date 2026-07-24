@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOGIN FOR STUDENT</title>
     <link rel="stylesheet" href="login.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+emailjs.init("R3UuwYlJAKMp78FFR");
+</script>
 </head>
 <body>
     <div class="main">
@@ -19,6 +24,9 @@
     <input type="password" id="password" placeholder="enter the password">
     <br>
       <br>
+    <a href="#" onclick="forgotPassword()">Forgot Password?</a>
+
+<br><br>
    <button onclick="login()">LOGIN</button>
     <br>
       <br>
