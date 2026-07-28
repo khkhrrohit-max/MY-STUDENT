@@ -61,7 +61,7 @@ sem1: [
         {name:"OOPS Notes", file:"https://drive.google.com/file/d/1S9Gtyzow7XdFpBxB7u_nSUpoKPYD6phZ/view?usp=sharing"},
         {name:"SIGNALS ANS SYSTEMS", file:"https://drive.google.com/file/d/1oHN3QmkxZxGzBx9WV7FxuAoT2XDJdhey/view?usp=sharing"},
         {name:"DESIGN AND ANALYSIS OF ALGORITHMS", file:"https://drive.google.com/file/d/1r426XzvlYwFG5Qh4ygrrMXTBAwH2vAMj/view?usp=sharing"},
-            {name:"DAA (teacher)", file:"https://drive.google.com/file/d/1r426XzvlYwFG5Qh4ygrrMXTBAwH2vAMj/view?usp=sharing"}
+            {name:"DAA (teacher)", file:"https://drive.google.com/file/d/1piSGsq55TaRc8q_h21_5FMrhvAG66lJe/view?usp=drivesdk"}
     
     ],
 
