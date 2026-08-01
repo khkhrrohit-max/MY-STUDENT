@@ -161,3 +161,55 @@ a:hover{
         transform:translateY(0);
     }
 }
+/* Admin Button */
+
+#admin{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    z-index:999;
+}
+
+#admin button{
+    padding:14px 28px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+
+    background:linear-gradient(135deg,#0d6efd,#00b4ff);
+
+    color:#fff;
+    font-size:16px;
+    font-weight:bold;
+    letter-spacing:1px;
+
+    box-shadow:0 8px 20px rgba(13,110,253,.35);
+
+    transition:all .3s ease;
+}
+
+#admin button:hover{
+    transform:translateY(-4px) scale(1.05);
+
+    box-shadow:0 15px 35px rgba(13,110,253,.45);
+
+    background:linear-gradient(135deg,#0056d6,#0099ff);
+}
+
+#admin button:active{
+    transform:scale(.95);
+}
+
+@media(max-width:768px){
+
+    #admin{
+        bottom:15px;
+        right:15px;
+    }
+
+    #admin button{
+        padding:12px 22px;
+        font-size:15px;
+    }
+
+}
