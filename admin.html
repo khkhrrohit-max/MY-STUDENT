@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MY STUDENT ADMIN PANEL</title>
+
+<link rel="stylesheet" href="admin.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- LOGIN -->
+
+<div id="loginPage" class="login-page">
+
+<div class="login-box">
+
+<h1>ADMIN PANEL</h1>
+
+<p>Login Only For Admin</p>
+
+<input
+type="email"
+id="adminEmail"
+placeholder="Admin Email">
+
+<input
+type="password"
+id="adminPassword"
+placeholder="Password">
+
+<button onclick="adminLogin()">
+LOGIN
+</button>
+
+</div>
+
+</div>
+
+
+
+
+
+<!-- DASHBOARD -->
+
+<div id="dashboard" style="display:none;">
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<h2>MY STUDENT</h2>
+
+<ul>
+
+<li onclick="showSection('dashboardSection')">
+🏠 Dashboard
+</li>
+
+<li onclick="showSection('usersSection')">
+👨‍🎓 Users
+</li>
+
+<li onclick="showSection('pdfSection')">
+📚 PDF Details
+</li>
+
+<li onclick="showSection('coinSection')">
+🪙 Coin Details
+</li>
+
+<li onclick="showSection('settingSection')">
+⚙ Settings
+</li>
+
+<li onclick="logout()">
+🚪 Logout
+</li>
+
+</ul>
+
+</div>
+
+
+
+
+
+<!-- CONTENT -->
+
+<div class="content">
+
+<h1>
+ADMIN DASHBOARD
+</h1>
+
+
+
+
+
+<!-- DASHBOARD -->
+
+<div
+id="dashboardSection"
+class="section">
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Total Users</h3>
+
+<h1 id="totalUsers">
+0
+</h1>
+
+</div>
+
+<div class="card">
+
+<h3>Total Coins</h3>
+
+<h1 id="totalCoins">
+0
+</h1>
+
+</div>
+
+<div class="card">
+
+<h3>Total PDF Views</h3>
+
+<h1 id="totalViews">
+0
+</h1>
+
+</div>
+
+<div class="card">
+
+<h3>Total Downloads</h3>
+
+<h1 id="totalDownloads">
+0
+</h1>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+<!-- USERS -->
+
+<div
+id="usersSection"
+class="section"
+style="display:none;">
+
+<h2>
+All Registered Users
+</h2>
+
+<input
+
+type="text"
+
+id="searchUser"
+
+placeholder="Search User"
+
+onkeyup="searchUser()">
+
+<br><br>
+
+<table id="userTable">
+
+<thead>
+
+<tr>
+
+<th>Name</th>
+
+<th>Email</th>
+
+<th>Coins</th>
+
+<th>PDF Views</th>
+
+<th>Downloads</th>
+
+<th>Login</th>
+
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="userBody">
+
+</tbody>
+
+</table>
+
+</div>
+
+
+
+
+
+<!-- PDF DETAILS -->
+
+<div
+id="pdfSection"
+class="section"
+style="display:none;">
+
+<h2>
+
+PDF Analytics
+
+</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>User</th>
+
+<th>Email</th>
+
+<th>Viewed PDF</th>
+
+<th>Total Views</th>
+
+<th>Downloads</th>
+
+</tr>
+
+</thead>
+
+<tbody id="pdfBody">
+
+</tbody>
+
+</table>
+
+</div>
+
+
+
+
+
+<!-- COINS -->
+
+<div
+id="coinSection"
+class="section"
+style="display:none;">
+
+<h2>
+
+Coin Details
+
+</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Name</th>
+
+<th>Email</th>
+
+<th>Coins</th>
+
+<th>Add</th>
+
+<th>Remove</th>
+
+</tr>
+
+</thead>
+
+<tbody id="coinBody">
+
+</tbody>
+
+</table>
+
+</div>
+
+
+
+
+
+<!-- SETTINGS -->
+
+<div
+id="settingSection"
+class="section"
+style="display:none;">
+
+<h2>
+
+Admin Information
+
+</h2>
+
+<div class="settingBox">
+
+<p>
+
+<b>Admin Email :</b>
+
+khkhrrohit@gmail.com
+
+</p>
+
+<p>
+
+<b>Website :</b>
+
+MY STUDENT
+
+</p>
+
+<p>
+
+<b>Developer :</b>
+
+ROHIT KHOKHAR
+
+</p>
+
+<button onclick="exportUsers()">
+
+Export User Data
+
+</button>
+
+<button onclick="clearAllUsers()">
+
+Delete All Users
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="admin.js"></script>
+
+</body>
+
+</html>
