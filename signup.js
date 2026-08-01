@@ -139,3 +139,6 @@ function register() {
     window.location.href =
     "login.html";
 }
+function admin() {
+    window.location.href = "admin.html";
+}
