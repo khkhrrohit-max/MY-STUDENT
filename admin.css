@@ -13,83 +13,185 @@ body{
 
 }
 
-/* =======================
-LOGIN PAGE
-======================= */
+/* ===========================
+   PROFESSIONAL LOGIN PAGE
+=========================== */
 
 .login-page{
 
     width:100%;
-    height:100vh;
+    min-height:100vh;
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
     background:
     linear-gradient(
-        rgba(0,0,0,.45),
-        rgba(0,0,0,.45)
+    135deg,
+    rgba(13,110,253,.85),
+    rgba(0,0,0,.65)
     ),
     url("ChatGPT Image Jun 22, 2026, 09_31_59 AM.png");
 
     background-size:cover;
     background-position:center;
 
+    position:relative;
+
 }
+
+/* Background Glow */
+
+.login-page::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+    height:450px;
+
+    background:#00b4ff;
+
+    border-radius:50%;
+
+    filter:blur(140px);
+
+    opacity:.25;
+
+    top:-120px;
+    left:-120px;
+
+}
+
+.login-page::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    background:#004cff;
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+    opacity:.25;
+
+    bottom:-100px;
+    right:-80px;
+
+}
+
+/* Login Card */
 
 .login-box{
 
-    width:420px;
+    position:relative;
 
-    background:rgba(255,255,255,.95);
+    z-index:2;
 
-    padding:40px;
+    width:430px;
 
-    border-radius:20px;
+    padding:45px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    border-radius:25px;
 
     text-align:center;
 
     box-shadow:
-    0 20px 60px rgba(0,0,0,.35);
 
-    animation:pop .6s;
+    0 25px 60px rgba(0,0,0,.35);
+
+    animation:loginAnimation .8s ease;
 
 }
 
+/* Logo Circle */
+
+.login-box::before{
+
+    content:"👨‍💻";
+
+    position:absolute;
+
+    top:-38px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:75px;
+    height:75px;
+
+    background:white;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:34px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+
+}
+
+/* Heading */
+
 .login-box h1{
 
-    color:#0d6efd;
+    margin-top:20px;
 
-    margin-bottom:10px;
+    color:white;
+
+    font-size:32px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
 
 }
 
 .login-box p{
 
-    color:#666;
+    color:#d9e8ff;
 
-    margin-bottom:25px;
+    margin:15px 0 30px;
+
+    font-size:15px;
 
 }
+
+/* Inputs */
 
 .login-box input{
 
     width:100%;
 
-    padding:15px;
+    padding:16px;
 
     margin:12px 0;
 
-    border:2px solid #d8e2ff;
+    border:none;
 
-    border-radius:12px;
+    border-radius:14px;
+
+    background:rgba(255,255,255,.9);
 
     font-size:16px;
 
-    transition:.3s;
+    transition:.35s;
 
 }
 
@@ -97,29 +199,29 @@ LOGIN PAGE
 
     outline:none;
 
-    border-color:#0d6efd;
+    transform:scale(1.02);
 
-    box-shadow:0 0 15px rgba(13,110,253,.25);
+    box-shadow:
+
+    0 0 18px rgba(0,180,255,.4);
 
 }
+
+/* Login Button */
 
 .login-box button{
 
     width:100%;
 
-    padding:15px;
-
     margin-top:20px;
+
+    padding:15px;
 
     border:none;
 
-    border-radius:12px;
+    border-radius:14px;
 
-    background:linear-gradient(
-    135deg,
-    #0d6efd,
-    #00b4ff
-    );
+    cursor:pointer;
 
     color:white;
 
@@ -127,18 +229,65 @@ LOGIN PAGE
 
     font-weight:bold;
 
-    cursor:pointer;
+    background:linear-gradient(
+    135deg,
+    #00b4ff,
+    #0066ff
+    );
 
-    transition:.3s;
+    transition:.35s;
 
 }
 
 .login-box button:hover{
 
-    transform:translateY(-3px);
+    transform:translateY(-4px);
 
     box-shadow:
-    0 10px 25px rgba(13,110,253,.35);
+
+    0 15px 30px rgba(0,114,255,.4);
+
+}
+
+/* Animation */
+
+@keyframes loginAnimation{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px) scale(.9);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0) scale(1);
+
+    }
+
+}
+
+/* Mobile */
+
+@media(max-width:500px){
+
+.login-box{
+
+    width:92%;
+
+    padding:35px 25px;
+
+}
+
+.login-box h1{
+
+    font-size:26px;
+
+}
 
 }
 
