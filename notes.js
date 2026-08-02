@@ -57,7 +57,7 @@ sem1: [
          {name:"SIGNALS AND SYSTEMS (OTHER COLLEGE)", file:"https://drive.google.com/file/d/1v3Z2yTTE0-nClLWWWgNdmNgpQTRoy5Q6/view?usp=sharing"},
         {name:"HTML Notes", file:"https://drive.google.com/file/d/10y76MAiYDOkI6Frv10R2SfLWHZbXyVDd/view?usp=drivesdk"},
         {name:"COA (Sec B)", file:"https://drive.google.com/file/d/1l-Oombq5oos4xGTMzLMGNjbWq8k8tidj/view?usp=sharing"},
-        {name:"MATH Notes", file:"https://drive.google.com/file/d/1nlwVyzxYjFNt4Umkm-7NiSq79rbV2-aj/view?usp=sharing"},
+        {name:"MATH Notes", file:"https://drive.google.com/file/d/1nlwVyzxYjFNt4Umkm-7NiSq79rbV2-aj/view?usp=drive_link"},
         {name:"OOPS Notes", file:"https://drive.google.com/file/d/1S9Gtyzow7XdFpBxB7u_nSUpoKPYD6phZ/view?usp=sharing"},
         {name:"SIGNALS ANS SYSTEMS", file:"https://drive.google.com/file/d/1oHN3QmkxZxGzBx9WV7FxuAoT2XDJdhey/view?usp=sharing"},
         {name:"DESIGN AND ANALYSIS OF ALGORITHMS", file:"https://drive.google.com/file/d/1r426XzvlYwFG5Qh4ygrrMXTBAwH2vAMj/view?usp=sharing"},
