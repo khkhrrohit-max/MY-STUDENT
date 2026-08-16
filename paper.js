@@ -24,7 +24,8 @@ sem1: [
     ],
 
     sem3: [
-        {name:"PDF 7", file:"pdf7.pdf"},
+        {name:"1st Ass", file:"https://drive.google.com/file/d/1T7fiwvA4bIxRR-dEMWzOcKr9EOjLom7V/view?usp=drivesdk"},
+        
         {name:"PDF 8", file:"pdf8.pdf"},
         {name:"PDF 9", file:"pdf9.pdf"}
     ],
