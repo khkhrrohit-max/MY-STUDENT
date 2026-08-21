@@ -12,7 +12,7 @@
 
 const ADMIN_EMAIL = "khkhrrohit@gmail.com";
 
-const ADMIN_PASSWORD = "ROHIT@809931";
+const ADMIN_PASSWORD = "Rohit@809931";
 
 
 // ============================================================
