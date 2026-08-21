@@ -1,18 +1,18 @@
 // ============================================================
 // MY STUDENT ADMIN PANEL
-// ============================================================
-// IMPORTANT:
-// This version does NOT store an admin password in this file.
-// Replace the authentication section with Supabase Auth for
-// production security.
+// LOCAL STORAGE VERSION
 // ============================================================
 
 
 // ============================================================
-// ADMIN EMAIL
+// ADMIN LOGIN DETAILS
 // ============================================================
+
+// Change these two values to your own admin credentials.
 
 const ADMIN_EMAIL = "khkhrrohit@gmail.com";
+
+const ADMIN_PASSWORD = "ROHIT@809931";
 
 
 // ============================================================
@@ -22,39 +22,111 @@ const ADMIN_EMAIL = "khkhrrohit@gmail.com";
 function adminLogin() {
 
     const email =
-        document.getElementById("adminEmail").value.trim();
+        document
+            .getElementById("adminEmail")
+            .value
+            .trim();
 
     const password =
-        document.getElementById("adminPassword").value;
+        document
+            .getElementById("adminPassword")
+            .value;
 
+
+    // Empty check
 
     if (!email || !password) {
 
         alert("Please enter email and password.");
 
         return;
+
     }
 
 
-    /*
-        IMPORTANT:
+    // Email check
 
-        Do NOT put your real admin password here.
+    if (
+        email.toLowerCase() !==
+        ADMIN_EMAIL.toLowerCase()
+    ) {
 
-        The frontend cannot securely hide a password.
+        alert("Only Admin Can Login.");
 
-        For real security use Supabase Auth.
+        return;
 
-        This temporary version expects an authentication
-        mechanism to be added here.
-    */
+    }
 
 
-    alert(
-        "Admin authentication should be connected to Supabase Auth. " +
-        "Do not store the admin password inside admin.js."
+    // Password check
+
+    if (password !== ADMIN_PASSWORD) {
+
+        alert("Wrong Password.");
+
+        return;
+
+    }
+
+
+    // Save login session
+
+    sessionStorage.setItem(
+        "adminLoggedIn",
+        "true"
     );
+
+
+    // Hide login
+
+    document
+        .getElementById("loginPage")
+        .style.display = "none";
+
+
+    // Show dashboard
+
+    document
+        .getElementById("dashboard")
+        .style.display = "block";
+
+
+    // Load data
+
+    loadDashboard();
+
 }
+
+
+// ============================================================
+// CHECK ADMIN LOGIN
+// ============================================================
+
+window.onload = function () {
+
+    const loggedIn =
+        sessionStorage.getItem(
+            "adminLoggedIn"
+        );
+
+
+    if (loggedIn === "true") {
+
+        document
+            .getElementById("loginPage")
+            .style.display = "none";
+
+
+        document
+            .getElementById("dashboard")
+            .style.display = "block";
+
+
+        loadDashboard();
+
+    }
+
+};
 
 
 // ============================================================
@@ -63,9 +135,13 @@ function adminLogin() {
 
 function adminLogout() {
 
-    sessionStorage.removeItem("adminLoggedIn");
+    sessionStorage.removeItem(
+        "adminLoggedIn"
+    );
+
 
     location.reload();
+
 }
 
 
@@ -76,12 +152,16 @@ function adminLogout() {
 function showSection(id) {
 
     const sections =
-        document.querySelectorAll(".section");
+        document.querySelectorAll(
+            ".section"
+        );
 
 
     sections.forEach(function(section) {
 
-        section.classList.remove("active");
+        section.classList.remove(
+            "active"
+        );
 
     });
 
@@ -92,7 +172,9 @@ function showSection(id) {
 
     if (selected) {
 
-        selected.classList.add("active");
+        selected.classList.add(
+            "active"
+        );
 
     }
 
@@ -128,7 +210,11 @@ function getAllUsers() {
     const users = [];
 
 
-    for (let i = 0; i < localStorage.length; i++) {
+    for (
+        let i = 0;
+        i < localStorage.length;
+        i++
+    ) {
 
         const key =
             localStorage.key(i);
@@ -162,7 +248,7 @@ function getAllUsers() {
 
         catch (error) {
 
-            // Ignore invalid localStorage data
+            // Ignore invalid localStorage values
 
         }
 
@@ -170,17 +256,20 @@ function getAllUsers() {
 
 
     return users;
+
 }
 
 
 // ============================================================
-// LOAD USERS
+// LOAD ALL USERS
 // ============================================================
 
 function loadUsers() {
 
     const tbody =
-        document.getElementById("userBody");
+        document.getElementById(
+            "userBody"
+        );
 
 
     if (!tbody) return;
@@ -202,27 +291,37 @@ function loadUsers() {
         row.innerHTML = `
 
             <td>
-                ${escapeHTML(user.name || "-")}
+                ${escapeHTML(
+                    user.name || "-"
+                )}
             </td>
 
             <td>
-                ${escapeHTML(user.email || "-")}
+                ${escapeHTML(
+                    user.email || "-"
+                )}
             </td>
 
             <td>
-                ${Number(user.coins || 0)}
+                ${Number(
+                    user.coins || 0
+                )}
             </td>
 
             <td>
-                ${Number(user.pdfViews || 0)}
+                ${Number(
+                    user.pdfViews || 0
+                )}
             </td>
 
             <td>
-                ${Number(user.downloads || 0)}
+                ${Number(
+                    user.downloads || 0
+                )}
             </td>
 
             <td>
-                ${getLoginStatus(user)}
+                ${getLoginInfo(user)}
             </td>
 
             <td>
@@ -230,19 +329,27 @@ function loadUsers() {
                 <button
                     class="smallBtn addBtn"
                     onclick="addCoins('${escapeAttribute(user.email)}')">
+
                     +50
+
                 </button>
+
 
                 <button
                     class="smallBtn removeBtn"
                     onclick="removeCoins('${escapeAttribute(user.email)}')">
+
                     -50
+
                 </button>
+
 
                 <button
                     class="smallBtn deleteBtn"
                     onclick="deleteUser('${escapeAttribute(user.email)}')">
+
                     Delete
+
                 </button>
 
             </td>
@@ -254,25 +361,14 @@ function loadUsers() {
 
     });
 
-
-    updateStatistics();
-
 }
 
 
 // ============================================================
-// LOGIN STATUS
+// LOGIN INFORMATION
 // ============================================================
 
-function getLoginStatus(user) {
-
-    /*
-        Different projects may use different properties
-        for login information.
-
-        This function checks common property names.
-    */
-
+function getLoginInfo(user) {
 
     if (user.isLoggedIn === true) {
 
@@ -291,18 +387,79 @@ function getLoginStatus(user) {
     if (user.lastLogin) {
 
         return escapeHTML(
-            String(user.lastLogin)
+            String(
+                user.lastLogin
+            )
+        );
+
+    }
+
+
+    if (user.loginTime) {
+
+        return escapeHTML(
+            String(
+                user.loginTime
+            )
         );
 
     }
 
 
     return "-";
+
 }
 
 
 // ============================================================
-// ADD COINS
+// FIND USER KEY
+// ============================================================
+
+function findUserKey(email) {
+
+    for (
+        let i = 0;
+        i < localStorage.length;
+        i++
+    ) {
+
+        const key =
+            localStorage.key(i);
+
+
+        try {
+
+            const data =
+                JSON.parse(
+                    localStorage.getItem(key)
+                );
+
+
+            if (
+                data &&
+                data.email &&
+                data.email.toLowerCase() ===
+                email.toLowerCase()
+            ) {
+
+                return key;
+
+            }
+
+        }
+
+        catch (error) {}
+
+    }
+
+
+    return null;
+
+}
+
+
+// ============================================================
+// ADD 50 COINS
 // ============================================================
 
 function addCoins(email) {
@@ -316,6 +473,7 @@ function addCoins(email) {
         alert("User not found.");
 
         return;
+
     }
 
 
@@ -328,7 +486,9 @@ function addCoins(email) {
 
 
         user.coins =
-            Number(user.coins || 0) + 50;
+            Number(
+                user.coins || 0
+            ) + 50;
 
 
         localStorage.setItem(
@@ -339,12 +499,15 @@ function addCoins(email) {
 
         loadDashboard();
 
-
     }
 
     catch (error) {
 
-        alert("Unable to update coins.");
+        console.error(error);
+
+        alert(
+            "Unable to add coins."
+        );
 
     }
 
@@ -352,7 +515,7 @@ function addCoins(email) {
 
 
 // ============================================================
-// REMOVE COINS
+// REMOVE 50 COINS
 // ============================================================
 
 function removeCoins(email) {
@@ -366,6 +529,7 @@ function removeCoins(email) {
         alert("User not found.");
 
         return;
+
     }
 
 
@@ -378,7 +542,9 @@ function removeCoins(email) {
 
 
         let coins =
-            Number(user.coins || 0);
+            Number(
+                user.coins || 0
+            );
 
 
         coins -= 50;
@@ -406,56 +572,14 @@ function removeCoins(email) {
 
     catch (error) {
 
-        alert("Unable to update coins.");
+        console.error(error);
+
+        alert(
+            "Unable to remove coins."
+        );
 
     }
 
-}
-
-
-// ============================================================
-// FIND USER STORAGE KEY
-// ============================================================
-
-function findUserKey(email) {
-
-    for (
-        let i = 0;
-        i < localStorage.length;
-        i++
-    ) {
-
-        const key =
-            localStorage.key(i);
-
-
-        try {
-
-            const user =
-                JSON.parse(
-                    localStorage.getItem(key)
-                );
-
-
-            if (
-                user &&
-                user.email &&
-                user.email.toLowerCase() ===
-                email.toLowerCase()
-            ) {
-
-                return key;
-
-            }
-
-        }
-
-        catch (error) {}
-
-    }
-
-
-    return null;
 }
 
 
@@ -474,20 +598,22 @@ function deleteUser(email) {
         alert("User not found.");
 
         return;
+
     }
 
 
-    const confirmDelete =
+    const confirmed =
         confirm(
-            "Delete user " +
+            "Are you sure you want to delete:\n\n" +
             email +
             "?"
         );
 
 
-    if (!confirmDelete) {
+    if (!confirmed) {
 
         return;
+
     }
 
 
@@ -497,20 +623,24 @@ function deleteUser(email) {
     loadDashboard();
 
 
-    alert("User deleted successfully.");
+    alert(
+        "User deleted successfully."
+    );
 
 }
 
 
 // ============================================================
-// SEARCH USER
+// SEARCH USERS
 // ============================================================
 
 function searchUser() {
 
     const search =
         document
-            .getElementById("searchUser")
+            .getElementById(
+                "searchUser"
+            )
             .value
             .toLowerCase()
             .trim();
@@ -525,10 +655,13 @@ function searchUser() {
     rows.forEach(function(row) {
 
         const text =
-            row.textContent.toLowerCase();
+            row.textContent
+                .toLowerCase();
 
 
-        if (text.includes(search)) {
+        if (
+            text.includes(search)
+        ) {
 
             row.style.display = "";
 
@@ -552,7 +685,9 @@ function searchUser() {
 function loadPDFTable() {
 
     const body =
-        document.getElementById("pdfBody");
+        document.getElementById(
+            "pdfBody"
+        );
 
 
     if (!body) return;
@@ -574,23 +709,35 @@ function loadPDFTable() {
         row.innerHTML = `
 
             <td>
-                ${escapeHTML(user.name || "-")}
+                ${escapeHTML(
+                    user.name || "-"
+                )}
             </td>
 
             <td>
-                ${escapeHTML(user.email || "-")}
+                ${escapeHTML(
+                    user.email || "-"
+                )}
             </td>
 
             <td>
-                ${escapeHTML(user.lastPDF || "-")}
+                ${escapeHTML(
+                    user.lastPDF ||
+                    user.lastPdf ||
+                    "-"
+                )}
             </td>
 
             <td>
-                ${Number(user.pdfViews || 0)}
+                ${Number(
+                    user.pdfViews || 0
+                )}
             </td>
 
             <td>
-                ${Number(user.downloads || 0)}
+                ${Number(
+                    user.downloads || 0
+                )}
             </td>
 
         `;
@@ -610,7 +757,9 @@ function loadPDFTable() {
 function loadCoinTable() {
 
     const body =
-        document.getElementById("coinBody");
+        document.getElementById(
+            "coinBody"
+        );
 
 
     if (!body) return;
@@ -632,15 +781,21 @@ function loadCoinTable() {
         row.innerHTML = `
 
             <td>
-                ${escapeHTML(user.name || "-")}
+                ${escapeHTML(
+                    user.name || "-"
+                )}
             </td>
 
             <td>
-                ${escapeHTML(user.email || "-")}
+                ${escapeHTML(
+                    user.email || "-"
+                )}
             </td>
 
             <td>
-                ${Number(user.coins || 0)}
+                ${Number(
+                    user.coins || 0
+                )}
             </td>
 
             <td>
@@ -648,7 +803,9 @@ function loadCoinTable() {
                 <button
                     class="smallBtn addBtn"
                     onclick="addCoins('${escapeAttribute(user.email)}')">
+
                     +50
+
                 </button>
 
             </td>
@@ -658,7 +815,9 @@ function loadCoinTable() {
                 <button
                     class="smallBtn removeBtn"
                     onclick="removeCoins('${escapeAttribute(user.email)}')">
+
                     -50
+
                 </button>
 
             </td>
@@ -693,71 +852,61 @@ function updateStatistics() {
     users.forEach(function(user) {
 
         totalCoins +=
-            Number(user.coins || 0);
+            Number(
+                user.coins || 0
+            );
 
 
         totalPDFViews +=
-            Number(user.pdfViews || 0);
+            Number(
+                user.pdfViews || 0
+            );
 
 
         totalDownloads +=
-            Number(user.downloads || 0);
+            Number(
+                user.downloads || 0
+            );
 
     });
 
 
-    const totalUsersElement =
-        document.getElementById("totalUsers");
+    document
+        .getElementById(
+            "totalUsers"
+        )
+        .textContent =
+        users.length;
 
 
-    const totalCoinsElement =
-        document.getElementById("totalCoins");
+    document
+        .getElementById(
+            "totalCoins"
+        )
+        .textContent =
+        totalCoins;
 
 
-    const totalPDFViewsElement =
-        document.getElementById("totalPDFViews");
+    document
+        .getElementById(
+            "totalPDFViews"
+        )
+        .textContent =
+        totalPDFViews;
 
 
-    const totalDownloadsElement =
-        document.getElementById("totalDownloads");
-
-
-    if (totalUsersElement) {
-
-        totalUsersElement.textContent =
-            users.length;
-
-    }
-
-
-    if (totalCoinsElement) {
-
-        totalCoinsElement.textContent =
-            totalCoins;
-
-    }
-
-
-    if (totalPDFViewsElement) {
-
-        totalPDFViewsElement.textContent =
-            totalPDFViews;
-
-    }
-
-
-    if (totalDownloadsElement) {
-
-        totalDownloadsElement.textContent =
-            totalDownloads;
-
-    }
+    document
+        .getElementById(
+            "totalDownloads"
+        )
+        .textContent =
+        totalDownloads;
 
 }
 
 
 // ============================================================
-// EXPORT USERS
+// EXPORT USER DATA
 // ============================================================
 
 function exportUsers() {
@@ -768,17 +917,16 @@ function exportUsers() {
 
     if (users.length === 0) {
 
-        alert("No users found.");
+        alert(
+            "No users found."
+        );
 
         return;
+
     }
 
 
-    /*
-        Remove sensitive fields before export.
-
-        Passwords should NEVER be exported.
-    */
+    // Never export passwords
 
     const safeUsers =
         users.map(function(user) {
@@ -811,7 +959,8 @@ function exportUsers() {
         new Blob(
             [json],
             {
-                type: "application/json"
+                type:
+                    "application/json"
             }
         );
 
@@ -820,21 +969,21 @@ function exportUsers() {
         URL.createObjectURL(blob);
 
 
-    const a =
+    const link =
         document.createElement("a");
 
 
-    a.href = url;
+    link.href = url;
 
-    a.download =
+    link.download =
         "my-student-users.json";
 
 
-    document.body.appendChild(a);
+    document.body.appendChild(link);
 
-    a.click();
+    link.click();
 
-    document.body.removeChild(a);
+    document.body.removeChild(link);
 
 
     URL.revokeObjectURL(url);
@@ -854,36 +1003,41 @@ function clearAllUsers() {
 
     if (users.length === 0) {
 
-        alert("No users found.");
+        alert(
+            "No users found."
+        );
 
         return;
+
     }
 
 
-    const confirmed =
+    const first =
         confirm(
             "WARNING!\n\n" +
-            "This will delete ALL registered users " +
-            "from this browser.\n\n" +
+            "This will delete ALL users " +
+            "stored in this browser.\n\n" +
             "Continue?"
         );
 
 
-    if (!confirmed) {
+    if (!first) {
 
         return;
+
     }
 
 
-    const secondConfirm =
+    const second =
         confirm(
             "Are you absolutely sure?"
         );
 
 
-    if (!secondConfirm) {
+    if (!second) {
 
         return;
+
     }
 
 
@@ -900,58 +1054,86 @@ function clearAllUsers() {
 
 
     alert(
-        "All users have been deleted."
+        "All users deleted."
     );
 
 }
 
 
 // ============================================================
-// ESCAPE HTML
+// SECURITY: ESCAPE HTML
 // ============================================================
 
 function escapeHTML(value) {
 
     return String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
 
 // ============================================================
-// ESCAPE ATTRIBUTE
+// SECURITY: ESCAPE ATTRIBUTE
 // ============================================================
 
 function escapeAttribute(value) {
 
     return String(value)
-        .replace(/\\/g, "\\\\")
-        .replace(/'/g, "\\'");
+
+        .replace(
+            /\\/g,
+            "\\\\"
+        )
+
+        .replace(
+            /'/g,
+            "\\'"
+        );
 
 }
 
 
 // ============================================================
-// ADMIN EMAIL DISPLAY
+// SHOW ADMIN EMAIL
 // ============================================================
 
 document.addEventListener(
     "DOMContentLoaded",
     function() {
 
-        const email =
+        const element =
             document.getElementById(
                 "adminEmailDisplay"
             );
 
 
-        if (email) {
+        if (element) {
 
-            email.textContent =
+            element.textContent =
                 ADMIN_EMAIL;
 
         }
@@ -961,15 +1143,11 @@ document.addEventListener(
 
 
 // ============================================================
-// AUTO REFRESH
+// AUTO REFRESH EVERY 5 SECONDS
 // ============================================================
 
 setInterval(
     function() {
-
-        /*
-            Only refresh while dashboard is visible.
-        */
 
         const dashboard =
             document.getElementById(
@@ -979,7 +1157,8 @@ setInterval(
 
         if (
             dashboard &&
-            dashboard.style.display !== "none"
+            dashboard.style.display !==
+            "none"
         ) {
 
             loadDashboard();
