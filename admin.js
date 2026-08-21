@@ -3,16 +3,36 @@
 // Login + Dashboard + User List
 // ================================
 
-// --------------------
-// CHANGE THIS PASSWORD
-// --------------------
+// --------------------------------------------------------
+// The admin password is NOT stored as plain text anymore.
+// This is the SHA-256 hash of the password instead.
+// IMPORTANT: this still is not real security — anyone can
+// read this JS file or open dev tools and bypass the check.
+// A genuinely secure admin login needs a real backend
+// (Firebase Auth, Supabase, your own server, etc.).
+//
+// To change the password: compute a new SHA-256 hash of the
+// new password (e.g. run this once in your browser console:
+//   crypto.subtle.digest("SHA-256", new TextEncoder().encode("newPasswordHere"))
+//     .then(b => console.log(Array.from(new Uint8Array(b))
+//       .map(x => x.toString(16).padStart(2,"0")).join("")))
+// and paste the result below.
+// --------------------------------------------------------
 const ADMIN_EMAIL = "khkhrrohit@gmail.com";
-const ADMIN_PASSWORD = "Rohit@809931";
+const ADMIN_PASSWORD_HASH = "da3f6f0392ae9c2dab48931786058e60deec9397f8084e060fdbeacf58a69a7b";
+
+async function sha256(text) {
+    const enc = new TextEncoder().encode(text);
+    const buf = await crypto.subtle.digest("SHA-256", enc);
+    return Array.from(new Uint8Array(buf))
+        .map(b => b.toString(16).padStart(2, "0"))
+        .join("");
+}
 
 // --------------------
 // LOGIN
 // --------------------
-function adminLogin() {
+async function adminLogin() {
 
     const email = document.getElementById("adminEmail").value.trim();
     const password = document.getElementById("adminPassword").value;
@@ -22,7 +42,9 @@ function adminLogin() {
         return;
     }
 
-    if (password !== ADMIN_PASSWORD) {
+    const hash = await sha256(password);
+
+    if (hash !== ADMIN_PASSWORD_HASH) {
         alert("Wrong Password");
         return;
     }
@@ -74,6 +96,8 @@ function showSection(id){
 function loadDashboard(){
 
     loadUsers();
+    loadPDFTable();
+    loadCoinTable();
 
 }
 
@@ -221,9 +245,9 @@ function calculatePDFStats(){
         }
 
         if(!data) continue;
+        if(!data.email) continue;
 
         views += Number(data.pdfViews || 0);
-
         downloads += Number(data.downloads || 0);
 
     }
@@ -233,6 +257,7 @@ function calculatePDFStats(){
     document.getElementById("totalDownloads").innerHTML = downloads;
 
 }
+
 // =====================================
 // ADMIN PANEL - PART 2
 // Coins + Delete + Export + Logout
@@ -255,8 +280,6 @@ function addCoins(email){
 
 }
 
-
-
 // ----------------------------
 // REMOVE COINS
 // ----------------------------
@@ -274,8 +297,6 @@ function removeCoins(email){
 
 }
 
-
-
 // ----------------------------
 // DELETE USER
 // ----------------------------
@@ -291,8 +312,6 @@ function deleteUser(email){
 
 }
 
-
-
 // ----------------------------
 // LOGOUT
 // ----------------------------
@@ -303,8 +322,6 @@ function logout(){
     location.reload();
 
 }
-
-
 
 // ----------------------------
 // EXPORT USER DATA
@@ -357,17 +374,19 @@ function exportUsers(){
 
 }
 
-
-
 // ----------------------------
 // DELETE ALL USERS
 // ----------------------------
-function clearAllUsers(){
+async function clearAllUsers(){
 
     const pass =
     prompt("Enter Admin Password");
 
-    if(pass !== ADMIN_PASSWORD){
+    if(pass === null) return;
+
+    const hash = await sha256(pass);
+
+    if(hash !== ADMIN_PASSWORD_HASH){
 
         alert("Wrong Password");
 
@@ -412,8 +431,6 @@ function clearAllUsers(){
     }
 
 }
-
-
 
 // ----------------------------
 // PDF TABLE
@@ -464,8 +481,6 @@ function loadPDFTable(){
     }
 
 }
-
-
 
 // ----------------------------
 // COIN TABLE
@@ -528,25 +543,6 @@ function loadCoinTable(){
     }
 
 }
-
-
-
-// ----------------------------
-// REFRESH
-// ----------------------------
-const oldLoad = loadDashboard;
-
-loadDashboard = function(){
-
-    oldLoad();
-
-    loadPDFTable();
-
-    loadCoinTable();
-
-};
-
-
 
 // ----------------------------
 // AUTO REFRESH
