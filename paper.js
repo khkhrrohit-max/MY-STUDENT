@@ -23,24 +23,24 @@ sem1: [
         {name:"END SEM 2025", file:"https://drive.google.com/file/d/1VuTnFuD8ntb0KVUKsb_55ISRTUXXTUTI/view?usp=sharing"}  
     ],
 
-    sem3: [
+   sem3: [
         {name:"1st Ass", file:"https://drive.google.com/file/d/1T7fiwvA4bIxRR-dEMWzOcKr9EOjLom7V/view?usp=drivesdk"},
-        
-        {name:"PDF 8", file:"pdf8.pdf"},
-        {name:"PDF 9", file:"pdf9.pdf"}
+        {name:"1st Ass 2026", file:"https://drive.google.com/file/d/1Sx8z2Kpihl9uMUf9ryXumtixrRWv2AoP/view?usp=sharing"},
+        {name:"PDF 9", file:"Coming_Soon.pdf"}
     ],
 
     sem4: [
-        {name:"PDF 10", file:"pdf10.pdf"},
-        {name:"PDF 11", file:"pdf11.pdf"},
-        {name:"PDF 12", file:"pdf12.pdf"}
+        {name:"PDF 10", file:"Coming_Soon.pdf"},
+        {name:"PDF 11", file:"Coming_Soon.pdf"},
+        {name:"PDF 12", file:"Coming_Soon.pdf"}
     ],
 
     sem5: [
-        {name:"PDF 13", file:"pdf13.pdf"},
-        {name:"PDF 14", file:"pdf14.pdf"},
-        {name:"PDF 15", file:"pdf15.pdf"}
+        {name:"1st ass 2026", file:"https://drive.google.com/file/d/1K4KeU-xm8BJIxSk7cseBbyiQLrnpyiEo/view?usp=sharing"},
+        {name:"PDF 14", file:"Coming_Soon.pdf"},
+        {name:"PDF 15", file:"Coming_Soon.pdf"}
     ],
+
 
     sem6: [
         {name:"PDF 16", file:"pdf16.pdf"},
