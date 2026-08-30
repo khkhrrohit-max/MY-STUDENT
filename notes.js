@@ -53,10 +53,11 @@ sem1: [
         {name:"EC 2025", file:"https://drive.google.com/file/d/1IR_ZUIxpyPCuhb4edZG8vM0RD20fBhBB/view?usp=sharing"}
     ],
 
-    sem3: [
+   sem3: [
         {name:"SIGNALS AND SYSTEMS (OTHER COLLEGE)", file:"https://drive.google.com/file/d/1v3Z2yTTE0-nClLWWWgNdmNgpQTRoy5Q6/view?usp=sharing"},
         {name:"HTML Notes", file:"https://drive.google.com/file/d/10y76MAiYDOkI6Frv10R2SfLWHZbXyVDd/view?usp=drivesdk"},
         {name:"COA (Sec B)", file:"https://drive.google.com/file/d/1l-Oombq5oos4xGTMzLMGNjbWq8k8tidj/view?usp=drive_link"},
+         {name:"COA BUS CONTROL", file:"https://drive.google.com/file/d/1BYs89C6x_UaZm7_vQ57FwGRnRw6s3YFL/view?usp=sharing"},
         {name:"MATH Notes", file:"https://drive.google.com/file/d/1nlwVyzxYjFNt4Umkm-7NiSq79rbV2-aj/view?usp=drive_link"},
          {name:"MATH 2 Notes", file:"https://drive.google.com/file/d/1RRByy3IJ2-LSoK7cbnR6YVaBNOvoeXqO/view?usp=sharing"},
         {name:"OOPS Notes", file:"https://drive.google.com/file/d/1S9Gtyzow7XdFpBxB7u_nSUpoKPYD6phZ/view?usp=drive_link"},
@@ -65,9 +66,11 @@ sem1: [
         {name:"SIGNALS ANS SYSTEMS handwriting", file:"https://drive.google.com/file/d/1oHN3QmkxZxGzBx9WV7FxuAoT2XDJdhey/view?usp=drive_link"},
         {name:"DESIGN AND ANALYSIS OF ALGORITHMS(HANDWRITTEN)", file:"https://drive.google.com/file/d/1r426XzvlYwFG5Qh4ygrrMXTBAwH2vAMj/view?usp=drive_link"},
          {name:"DESIGN AND ANALYSIS OF ALGORITHMS 2", file:"https://drive.google.com/file/d/1FEQ4clI0o9nnK2JsW9cOc1MeZ2iizJa6/view?usp=sharing"},
+         {name:"DESIGN AND ANALYSIS OF ALGORITHMS 3", file:"https://drive.google.com/file/d/1A9F7_UQRIeFuoLHdqP7ifUr1_Fnci6Z-/view?usp=sharing"},
         {name:"DAA (teacher)", file:"https://drive.google.com/file/d/1piSGsq55TaRc8q_h21_5FMrhvAG66lJe/view?usp=drivesdk"}
     
     ],
+
 
     sem4: [
         {name:"PDF 10", file:"pdf10.pdf"},
