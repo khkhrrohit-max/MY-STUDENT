@@ -114,25 +114,21 @@ function register() {
         return;
     }
 
-    const user = {
+    if (localStorage.getItem(email)) {
+    alert("Email Already Registered");
+    return;
+}
+
+const user = {
     name: name,
     email: email,
     password: password,
     coins: 100
 };
 
-let users = JSON.parse(localStorage.getItem("MY_STUDENT_USERS")) || {};
-
-if (users[email]) {
-    alert("Email Already Registered");
-    return;
-}
-
-users[email] = user;
-
 localStorage.setItem(
-    "MY_STUDENT_USERS",
-    JSON.stringify(users)
+    email,
+    JSON.stringify(user)
 );
     alert("Signup Successful");
 
