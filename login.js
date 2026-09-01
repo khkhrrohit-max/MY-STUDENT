@@ -3,14 +3,14 @@ function login(){
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    let users = JSON.parse(localStorage.getItem("MY_STUDENT_USERS")) || {};
+    const data = localStorage.getItem(email);
 
-const user = users[email];
-
-if (!user) {
+if(!data){
     alert("Account Not Found");
     return;
 }
+
+const user = JSON.parse(data);
 
     if(user.password !== password){
         alert("Wrong Password");
