@@ -114,26 +114,26 @@ function register() {
         return;
     }
 
-    if (localStorage.getItem(email)) {
-
-        alert("Email Already Registered");
-        return;
-    }
-
     const user = {
+    name: name,
+    email: email,
+    password: password,
+    coins: 100
+};
 
-        name: name,
-        email: email,
-        password: password,
-        coins: 100
+let users = JSON.parse(localStorage.getItem("MY_STUDENT_USERS")) || {};
 
-    };
+if (users[email]) {
+    alert("Email Already Registered");
+    return;
+}
 
-    localStorage.setItem(
-        email,
-        JSON.stringify(user)
-    );
+users[email] = user;
 
+localStorage.setItem(
+    "MY_STUDENT_USERS",
+    JSON.stringify(users)
+);
     alert("Signup Successful");
 
     window.location.href =
