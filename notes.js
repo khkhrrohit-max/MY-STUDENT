@@ -53,23 +53,32 @@ sem1: [
         {name:"EC 2025", file:"https://drive.google.com/file/d/1IR_ZUIxpyPCuhb4edZG8vM0RD20fBhBB/view?usp=sharing"}
     ],
 
-   sem3: [
+    sem3: [
         {name:"SIGNALS AND SYSTEMS (OTHER COLLEGE)", file:"https://drive.google.com/file/d/1v3Z2yTTE0-nClLWWWgNdmNgpQTRoy5Q6/view?usp=sharing"},
         {name:"HTML Notes", file:"https://drive.google.com/file/d/10y76MAiYDOkI6Frv10R2SfLWHZbXyVDd/view?usp=drivesdk"},
+         {name:"CSS Notes", file:"https://drive.google.com/file/d/1zC1ZFc47Xk9YvUPCfP87V3_iiMED9wIE/view?usp=sharing"},
+         {name:"XML Notes", file:"https://drive.google.com/file/d/1cfzsrAAgT7ippbg2MlJB3eBuqQK2iX3b/view?usp=sharing"},
+         {name:"JS Notes", file:"https://drive.google.com/file/d/1U51w-Zk-CirpjXgZ4CuTArRWG2Gwi4FD/view?usp=sharing"},
         {name:"COA (Sec B)", file:"https://drive.google.com/file/d/1l-Oombq5oos4xGTMzLMGNjbWq8k8tidj/view?usp=drive_link"},
+         {name:"COA (Sec B) 2", file:"https://drive.google.com/file/d/172Yp-yiHPmCG7Re-xSrIC1pXmLrG97Ut/view?usp=sharing"},
          {name:"COA BUS CONTROL", file:"https://drive.google.com/file/d/1BYs89C6x_UaZm7_vQ57FwGRnRw6s3YFL/view?usp=sharing"},
         {name:"MATH Notes", file:"https://drive.google.com/file/d/1nlwVyzxYjFNt4Umkm-7NiSq79rbV2-aj/view?usp=drive_link"},
          {name:"MATH 2 Notes", file:"https://drive.google.com/file/d/1RRByy3IJ2-LSoK7cbnR6YVaBNOvoeXqO/view?usp=sharing"},
+        {name:"MATH 3 Notes", file:"https://drive.google.com/file/d/1x4UfPYr6ZZmmjxVe6XD4MPg-vvWHTVrp/view?usp=sharing"},
         {name:"OOPS Notes", file:"https://drive.google.com/file/d/1S9Gtyzow7XdFpBxB7u_nSUpoKPYD6phZ/view?usp=drive_link"},
         {name:"SIGNALS ANS SYSTEMS 1", file:"https://drive.google.com/file/d/13lKCEvzDNkuuyDwkmw4_pJG_gS73k0DQ/view?usp=drivesdk"},
         {name:"SIGNALS ANS SYSTEMS 2", file:"https://drive.google.com/file/d/1VbwZ8vEjGTBkL5Lp7vhFnIrL6_mtwq4a/view?usp=drivesdk"},
         {name:"SIGNALS ANS SYSTEMS handwriting", file:"https://drive.google.com/file/d/1oHN3QmkxZxGzBx9WV7FxuAoT2XDJdhey/view?usp=drive_link"},
+         {name:"SIGNALS ANS SYSTEMS handwriting 2", file:"https://drive.google.com/file/d/1BtrrsXFSmdF5LQgyXiK4fQs78IYiJ2TY/view?usp=sharing"},
         {name:"DESIGN AND ANALYSIS OF ALGORITHMS(HANDWRITTEN)", file:"https://drive.google.com/file/d/1r426XzvlYwFG5Qh4ygrrMXTBAwH2vAMj/view?usp=drive_link"},
+         {name:"DESIGN AND ANALYSIS OF ALGORITHMS(HANDWRITTEN) 2", file:"https://drive.google.com/file/d/1OynB1TCdjQ6YXERxjvBdTF0hzof-ZBZr/view?usp=sharing"},
          {name:"DESIGN AND ANALYSIS OF ALGORITHMS 2", file:"https://drive.google.com/file/d/1FEQ4clI0o9nnK2JsW9cOc1MeZ2iizJa6/view?usp=sharing"},
          {name:"DESIGN AND ANALYSIS OF ALGORITHMS 3", file:"https://drive.google.com/file/d/1A9F7_UQRIeFuoLHdqP7ifUr1_Fnci6Z-/view?usp=sharing"},
+         {name:"DESIGN AND ANALYSIS OF ALGORITHMS 4", file:"https://drive.google.com/file/d/1EhvKSd4dEGF-gelEEf_Kh0Ph-PhdoBtR/view?usp=drive_link"},
         {name:"DAA (teacher)", file:"https://drive.google.com/file/d/1piSGsq55TaRc8q_h21_5FMrhvAG66lJe/view?usp=drivesdk"}
     
     ],
+
 
 
     sem4: [
