@@ -1,32 +1,33 @@
 const papers = {
 
-sem1: [
+  sem1: [
         {name:"ASS 1", file:"https://drive.google.com/file/d/1Tr7L26faghN8nYhQTcfeKU1rvcJSnM-M/view?usp=sharing"},
         {name:"ASS 2", file:"https://drive.google.com/file/d/1dE_oKO4GbkEycKthiKA7wxEoXy9Bz_J7/view?usp=sharing"},
         {name:"ASS 2", file:"https://drive.google.com/file/d/1lsahtL68sA3KJrhsVKuBaenUXxBuEF48/view?usp=sharing"},
         {name:"END SEM", file:"https://drive.google.com/file/d/1FLs0OZ3_IluWfpL5lCeMTvTndNq8eJtA/view?usp=sharing"},
-       
-        {name:"END SEM", file:"https://drive.google.com/file/d/1PnY1WqunsIsehDLxXuk4VzGHwSGExrbr/view?usp=sharing"}
-         {name:"1ST ASSI 2025", file:"https://drive.google.com/file/d/1rWp45RxvCcHcw5dLHQx2waXbErwVkzay/view?usp=sharing"},
-        {name:"2NS ASSI 2025", file:"https://drive.google.com/file/d/1pka4gS4yKMc9uENbNTs-mBVSNxMDGjch/view?usp=sharing"},
-        {name:"END SEM 2025", file:"https://drive.google.com/file/d/1p7WuezcdLb4VlxTyZ0b3xjnGvvbc0yMk/view?usp=sharing"}  
-],
+        {name:"END SEM", file:"https://drive.google.com/file/d/1PnY1WqunsIsehDLxXuk4VzGHwSGExrbr/view?usp=sharing"},
+        {name:"1ST ASSI 2025", file:"https://drive.google.com/file/d/1rWp45RxvCcHcw5dLHQx2waXbErwVkzay/view?usp=sharing"},
+        {name:"2ND ASSI 2025", file:"https://drive.google.com/file/d/1pka4gS4yKMc9uENbNTs-mBVSNxMDGjch/view?usp=sharing"},
+         {name:"1st ass", file:"https://drive.google.com/file/d/1VK1HzCgZrjMlYKd-wrb88e4SGvRTzNeB/view?usp=sharing"},
+        {name:"END SEM 2025", file:"https://drive.google.com/file/d/1p7WuezcdLb4VlxTyZ0b3xjnGvvbc0yMk/view?usp=sharing"}
+    ],
 
     sem2: [
         {name:"ASS 1", file:"https://drive.google.com/file/d/1KdseMFvtnItnQjU9dIc3_puxPcoMceFg/view?usp=sharing"},
         {name:"ASS 1(math)", file:"https://drive.google.com/file/d/1PzH30poPefRDbldYap7IaCBdc_ZjiObP/view?usp=sharing"},
         {name:"ASS 1(2024)", file:"https://drive.google.com/file/d/1Umyr4tHBbHwxfpqtOaVwc7Cp7l6daiH2/view?usp=sharing"},
         {name:"ASS 2", file:"https://drive.google.com/file/d/1FcpsFjbATFQcGMDL-y9AD9e_4PM9UwTU/view?usp=sharing"},
-        {name:"END SEM", file:"https://drive.google.com/file/d/1_pOf156VMsYGtKkKXImTTx5Z935dTg4L/view?usp=sharing"}
+        {name:"END SEM", file:"https://drive.google.com/file/d/1_pOf156VMsYGtKkKXImTTx5Z935dTg4L/view?usp=sharing"},
         {name:"1ST ASSI 2025", file:"https://drive.google.com/file/d/1DyQ4_0cgE1l05oYia94W_nc_-MBB26bX/view?usp=sharing"},
         {name:"2ND ASSI 2025", file:"https://drive.google.com/file/d/15DRcfsTfVS6bzUZBb-yEdz63lCPo64Kp/view?usp=sharing"},
-        {name:"END SEM 2025", file:"https://drive.google.com/file/d/1VuTnFuD8ntb0KVUKsb_55ISRTUXXTUTI/view?usp=sharing"}  
+        {name:"END SEM 2025", file:"https://drive.google.com/file/d/1VuTnFuD8ntb0KVUKsb_55ISRTUXXTUTI/view?usp=sharing"}    
     ],
 
-   sem3: [
+    sem3: [
         {name:"1st Ass", file:"https://drive.google.com/file/d/1T7fiwvA4bIxRR-dEMWzOcKr9EOjLom7V/view?usp=drivesdk"},
         {name:"1st Ass 2026", file:"https://drive.google.com/file/d/1Sx8z2Kpihl9uMUf9ryXumtixrRWv2AoP/view?usp=sharing"},
-        {name:"2ns ass 2025", file:"https://drive.google.com/file/d/1idtUB0fk2Z8hZjSoSNIumwhLEOkQSJQe/view?usp=drivesdk"}
+        {name:"2ns ass 2025", file:"https://drive.google.com/file/d/1idtUB0fk2Z8hZjSoSNIumwhLEOkQSJQe/view?usp=drivesdk"},
+        {name:"2ns ass 2026", file:"https://drive.google.com/file/d/1idtUB0fk2Z8hZjSoSNIumwhLEOkQSJQe/view?usp=drivesdk"}
     ],
 
     sem4: [
