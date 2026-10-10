@@ -209,3 +209,134 @@ body{
     }
 
 }
+/* ========== RESPONSIVE DESIGN FOR ALL DEVICES ========== */
+
+/* Make images and elements fit their containers */
+img, video, iframe {
+    max-width: 100%;
+}
+
+/* Tablets and small laptops */
+@media screen and (max-width: 1024px) {
+
+    .logo {
+        padding: 20px 15px;
+    }
+
+    .logo h1 {
+        font-size: clamp(24px, 4vw, 32px);
+    }
+
+    .creator {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    #paperList {
+        width: 95%;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 18px;
+    }
+
+    .paper-card {
+        padding: 20px;
+    }
+}
+
+/* Mobile phones and iPhones */
+@media screen and (max-width: 600px) {
+
+    body {
+        background-attachment: scroll;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .logo {
+        padding: 18px 12px;
+    }
+
+    .logo h1 {
+        font-size: clamp(20px, 6vw, 28px);
+        letter-spacing: 1px;
+        overflow-wrap: anywhere;
+    }
+
+    .logo p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .creator {
+        padding: 10px 15px;
+        font-size: 12px;
+        overflow-wrap: anywhere;
+    }
+
+    #sem {
+        width: 92%;
+        max-width: 100%;
+        margin: 20px auto;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    #paperList {
+        width: 92%;
+        max-width: 100%;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin: 20px auto;
+    }
+
+    .paper-card {
+        padding: 20px 15px;
+        border-radius: 14px;
+    }
+
+    .paper-card h3 {
+        font-size: 18px;
+    }
+
+    .paper-card a {
+        max-width: 100%;
+        padding: 12px 16px;
+        overflow-wrap: anywhere;
+    }
+
+    .paper {
+        width: 100%;
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .paper span {
+        font-size: 16px;
+        overflow-wrap: anywhere;
+    }
+
+    .paper button {
+        min-height: 44px;
+        font-size: 14px;
+    }
+}
+
+/* Very small phones */
+@media screen and (max-width: 360px) {
+
+    .logo h1 {
+        font-size: 20px;
+    }
+
+    .logo p {
+        font-size: 12px;
+    }
+
+    #paperList {
+        width: 95%;
+    }
+
+    .paper-card {
+        padding: 15px 10px;
+    }
+}
