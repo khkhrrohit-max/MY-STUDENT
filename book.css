@@ -346,3 +346,289 @@ body{
     background:#16a34a;
 
 }
+/* =========================================
+   RESPONSIVE DESIGN FOR ALL DEVICES
+   Add this at the END of your CSS file
+========================================= */
+
+/* Images and media */
+img,
+video,
+iframe {
+    max-width: 100%;
+}
+
+/* Tablets and medium screens */
+@media screen and (max-width: 1024px) {
+
+    .navbar {
+        height: 85px;
+        padding: 10px 15px;
+    }
+
+    .logo h1 {
+        font-size: clamp(22px, 3.5vw, 30px);
+    }
+
+    .creator {
+        right: 15px;
+        font-size: 12px;
+    }
+
+    .menu {
+        width: 220px;
+    }
+
+    .content {
+        padding: 25px;
+        min-width: 0;
+    }
+
+    .welcome,
+    .books {
+        padding: 25px;
+    }
+
+    #sem {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    #bookList {
+        grid-template-columns: repeat(
+            auto-fit,
+            minmax(min(100%, 200px), 1fr)
+        );
+        gap: 15px;
+    }
+
+    .footer {
+        font-size: 13px;
+        padding: 0 10px;
+        text-align: center;
+    }
+}
+
+/* Mobile phones and iPhones */
+@media screen and (max-width: 600px) {
+
+    body {
+        min-height: 100vh;
+        background-attachment: scroll;
+        background-position: center;
+        overflow-wrap: anywhere;
+    }
+
+    /* Navbar */
+    .navbar {
+        height: auto;
+        min-height: 90px;
+        padding: 18px 12px 30px;
+    }
+
+    .logo h1 {
+        font-size: clamp(19px, 5.5vw, 26px);
+        letter-spacing: 1px;
+    }
+
+    .logo p {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .creator {
+        right: 10px;
+        bottom: 5px;
+        font-size: 10px;
+    }
+
+    /* Sidebar */
+    .menu {
+        width: 100%;
+        padding: 8px;
+    }
+
+    .menu ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .menu ul li {
+        margin: 2px;
+    }
+
+    .menu ul li a {
+        padding: 9px 12px;
+        font-size: 14px;
+    }
+
+    .menu ul li a:hover {
+        transform: none;
+    }
+
+    /* Main content */
+    .content {
+        width: 100%;
+        padding: 15px;
+        min-width: 0;
+    }
+
+    .welcome,
+    .books {
+        padding: 18px 15px;
+        margin-bottom: 18px;
+        border-radius: 14px;
+    }
+
+    .welcome h1 {
+        font-size: 23px;
+    }
+
+    .welcome p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .books h2 {
+        font-size: 21px;
+    }
+
+    /* Semester dropdown */
+    #sem {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    /* Book cards */
+    #bookList {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-top: 20px;
+    }
+
+    .book-card {
+        padding: 18px 12px;
+    }
+
+    .book-card h3 {
+        font-size: 17px;
+    }
+
+    .book-card a {
+        display: inline-block;
+        max-width: 100%;
+        padding: 10px 14px;
+        overflow-wrap: anywhere;
+    }
+
+    /* Book list */
+    .book {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 14px;
+        gap: 12px;
+    }
+
+    .book span {
+        min-width: 0;
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .book .buttons {
+        width: 100%;
+        display: flex;
+        gap: 8px;
+    }
+
+    .book button {
+        flex: 1;
+        min-width: 0;
+        padding: 11px 8px;
+    }
+
+    /* Question papers */
+    .paper {
+        padding: 15px;
+    }
+
+    .paper h3 {
+        font-size: 17px;
+        overflow-wrap: anywhere;
+    }
+
+    .openBtn,
+    .downloadBtn {
+        display: inline-block;
+        max-width: 100%;
+        margin: 5px 4px 5px 0;
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    /* Notes */
+    .note {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 14px;
+    }
+
+    .note span {
+        font-size: 14px;
+        overflow-wrap: anywhere;
+    }
+
+    .note button {
+        margin: 4px 4px 4px 0;
+        padding: 10px 12px;
+    }
+
+    /* Fixed footer */
+    .footer {
+        position: static;
+        min-height: 55px;
+        height: auto;
+        padding: 14px 10px;
+        font-size: 12px;
+        line-height: 1.5;
+        text-align: center;
+    }
+}
+
+/* Very small mobile screens */
+@media screen and (max-width: 360px) {
+
+    .logo h1 {
+        font-size: 19px;
+    }
+
+    .content {
+        padding: 10px;
+    }
+
+    .welcome,
+    .books {
+        padding: 14px 10px;
+    }
+
+    .menu ul li a {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    .book .buttons {
+        flex-direction: column;
+    }
+
+    .openBtn,
+    .downloadBtn {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
