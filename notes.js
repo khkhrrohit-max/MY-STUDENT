@@ -59,6 +59,8 @@ sem1: [
          {name:"CSS Notes", file:"https://drive.google.com/file/d/1zC1ZFc47Xk9YvUPCfP87V3_iiMED9wIE/view?usp=sharing"},
          {name:"XML Notes", file:"https://drive.google.com/file/d/1cfzsrAAgT7ippbg2MlJB3eBuqQK2iX3b/view?usp=sharing"},
          {name:"JS Notes", file:"https://drive.google.com/file/d/1U51w-Zk-CirpjXgZ4CuTArRWG2Gwi4FD/view?usp=sharing"},
+         {name:"JS Notes 2 ", file:"https://drive.google.com/file/d/1QOUZ4z3I_rReg9rJgTwwS6oiTbiRBnns/view?usp=sharing"},
+         {name:"PHP Notes", file:"https://drive.google.com/file/d/1NZiogDlL0KqfVuxJU3SQTrXP52qi0915/view?usp=sharing"},
         {name:"COA (Sec B)", file:"https://drive.google.com/file/d/1l-Oombq5oos4xGTMzLMGNjbWq8k8tidj/view?usp=drive_link"},
          {name:"COA (Sec B) 2", file:"https://drive.google.com/file/d/172Yp-yiHPmCG7Re-xSrIC1pXmLrG97Ut/view?usp=sharing"},
          {name:"COA BUS CONTROL", file:"https://drive.google.com/file/d/1BYs89C6x_UaZm7_vQ57FwGRnRw6s3YFL/view?usp=sharing"},
@@ -75,6 +77,8 @@ sem1: [
          {name:"DESIGN AND ANALYSIS OF ALGORITHMS 2", file:"https://drive.google.com/file/d/1FEQ4clI0o9nnK2JsW9cOc1MeZ2iizJa6/view?usp=sharing"},
          {name:"DESIGN AND ANALYSIS OF ALGORITHMS 3", file:"https://drive.google.com/file/d/1A9F7_UQRIeFuoLHdqP7ifUr1_Fnci6Z-/view?usp=sharing"},
          {name:"DESIGN AND ANALYSIS OF ALGORITHMS 4", file:"https://drive.google.com/file/d/1EhvKSd4dEGF-gelEEf_Kh0Ph-PhdoBtR/view?usp=drive_link"},
+        {name:"DESIGN AND ANALYSIS OF ALGORITHMS 5", file:"https://drive.google.com/file/d/1aZugJjCp2oIy6_65sxcv0dFNngYCqeN9/view?usp=sharing"},
+        {name:"DESIGN AND ANALYSIS OF ALGORITHMS 6", file:"https://drive.google.com/file/d/1vhkZV4nJWhMmXDgtHD_PWzxIQmV2Klg5/view?usp=sharing"},
         {name:"DAA (teacher)", file:"https://drive.google.com/file/d/1piSGsq55TaRc8q_h21_5FMrhvAG66lJe/view?usp=drivesdk"}
     
     ],
