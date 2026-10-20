@@ -53,7 +53,7 @@ sem1: [
         {name:"EC 2025", file:"https://drive.google.com/file/d/1IR_ZUIxpyPCuhb4edZG8vM0RD20fBhBB/view?usp=sharing"}
     ],
 
-    sem3: [
+     sem3: [
         {name:"SIGNALS AND SYSTEMS (OTHER COLLEGE)", file:"https://drive.google.com/file/d/1v3Z2yTTE0-nClLWWWgNdmNgpQTRoy5Q6/view?usp=sharing"},
         {name:"HTML Notes", file:"https://drive.google.com/file/d/10y76MAiYDOkI6Frv10R2SfLWHZbXyVDd/view?usp=drivesdk"},
          {name:"CSS Notes", file:"https://drive.google.com/file/d/1zC1ZFc47Xk9YvUPCfP87V3_iiMED9wIE/view?usp=sharing"},
@@ -63,11 +63,14 @@ sem1: [
          {name:"PHP Notes", file:"https://drive.google.com/file/d/1NZiogDlL0KqfVuxJU3SQTrXP52qi0915/view?usp=sharing"},
         {name:"COA (Sec B)", file:"https://drive.google.com/file/d/1l-Oombq5oos4xGTMzLMGNjbWq8k8tidj/view?usp=drive_link"},
          {name:"COA (Sec B) 2", file:"https://drive.google.com/file/d/172Yp-yiHPmCG7Re-xSrIC1pXmLrG97Ut/view?usp=sharing"},
+         {name:"COA (Sec B) 3", file:"https://drive.google.com/file/d/1pO7MLyWDE391V0TmZHe2WcUnn1kJ0l5J/view?usp=sharing"},
          {name:"COA BUS CONTROL", file:"https://drive.google.com/file/d/1BYs89C6x_UaZm7_vQ57FwGRnRw6s3YFL/view?usp=sharing"},
         {name:"MATH Notes", file:"https://drive.google.com/file/d/1nlwVyzxYjFNt4Umkm-7NiSq79rbV2-aj/view?usp=drive_link"},
          {name:"MATH 2 Notes", file:"https://drive.google.com/file/d/1RRByy3IJ2-LSoK7cbnR6YVaBNOvoeXqO/view?usp=sharing"},
         {name:"MATH 3 Notes", file:"https://drive.google.com/file/d/1x4UfPYr6ZZmmjxVe6XD4MPg-vvWHTVrp/view?usp=sharing"},
+        {name:"MATH 4 Notes", file:"https://drive.google.com/file/d/1WQ-vrPeSh9q9_sCalWvdzxxvUaafBCTt/view?usp=sharing"},
         {name:"OOPS Notes", file:"https://drive.google.com/file/d/1S9Gtyzow7XdFpBxB7u_nSUpoKPYD6phZ/view?usp=drive_link"},
+         {name:"OOPS 2 Notes", file:"https://drive.google.com/file/d/1iGCWGAgK5ilpad8_1DtEdDmnPbXa9Cmp/view?usp=sharing"},
         {name:"SIGNALS ANS SYSTEMS 1", file:"https://drive.google.com/file/d/13lKCEvzDNkuuyDwkmw4_pJG_gS73k0DQ/view?usp=drivesdk"},
         {name:"SIGNALS ANS SYSTEMS 2", file:"https://drive.google.com/file/d/1VbwZ8vEjGTBkL5Lp7vhFnIrL6_mtwq4a/view?usp=drivesdk"},
         {name:"SIGNALS ANS SYSTEMS handwriting", file:"https://drive.google.com/file/d/1oHN3QmkxZxGzBx9WV7FxuAoT2XDJdhey/view?usp=drive_link"},
