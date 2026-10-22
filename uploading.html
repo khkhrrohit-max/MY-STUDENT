@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MY STUDENT | Resource Upload</title>
+  <link rel="stylesheet" href="uploading.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="brand">
+      <h1>MY STUDENT</h1>
+      <p>Admin Resource Upload Panel</p>
+    </div>
+    <a class="back-link" href="admin.html">← Admin Dashboard</a>
+  </header>
+
+  <main class="page">
+    <section class="intro">
+      <span class="eyebrow">ADMIN WORKSPACE</span>
+      <h2>Upload Study Resources</h2>
+      <p>Upload books, notes, question papers, or calendar announcements for students.</p>
+    </section>
+
+    <section class="upload-card">
+      <form id="uploadForm">
+        <div class="field">
+          <label for="resourceType">Resource category</label>
+          <select id="resourceType" required>
+            <option value="BOOKS">BOOKS</option>
+            <option value="NOTES">NOTES</option>
+            <option value="PAPERS">PAPERS</option>
+            <option value="OTHERS">OTHERS (Calendar)</option>
+          </select>
+        </div>
+
+        <div class="field" id="titleField">
+          <label for="resourceTitle">Subject / resource name</label>
+          <input id="resourceTitle" type="text" maxlength="120" placeholder="e.g. Data Structures" required>
+        </div>
+
+        <div class="field" id="semesterField">
+          <label for="semester">Semester</label>
+          <select id="semester">
+            <option value="sem1">1st Semester</option>
+            <option value="sem2">2nd Semester</option>
+            <option value="sem3">3rd Semester</option>
+            <option value="sem4">4th Semester</option>
+            <option value="sem5">5th Semester</option>
+            <option value="sem6">6th Semester</option>
+            <option value="sem7">7th Semester</option>
+            <option value="sem8">8th Semester</option>
+          </select>
+        </div>
+
+        <div class="field" id="yearField">
+          <label for="resourceYear">Academic year</label>
+          <input id="resourceYear" type="number" min="2000" max="2100" placeholder="e.g. 2026">
+        </div>
+
+        <div class="field hidden" id="eventDateField">
+          <label for="eventDate">Event date</label>
+          <input id="eventDate" type="date">
+        </div>
+
+        <div class="field hidden" id="descriptionField">
+          <label for="eventDescription">Announcement details</label>
+          <textarea id="eventDescription" rows="4" maxlength="1500" placeholder="Write the event or calendar details here..."></textarea>
+        </div>
+
+        <div class="field" id="fileField">
+          <label for="pdfFile">PDF file <span class="optional" id="fileOptional">(required)</span></label>
+          <input id="pdfFile" type="file" accept="application/pdf,.pdf">
+          <small>Prototype limit: 2 MB per PDF. For a live website with larger files and multiple devices, connect shared cloud storage.</small>
+        </div>
+
+        <div id="filePreview" class="file-preview hidden"></div>
+        <button class="submit-btn" type="submit"><span>⬆</span> Save Resource</button>
+        <p id="statusMessage" class="status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="library-card">
+      <div class="library-heading">
+        <div>
+          <h2>Recently Uploaded</h2>
+          <p>Resources saved in this browser for the prototype.</p>
+        </div>
+        <button id="refreshBtn" class="secondary-btn" type="button">Refresh</button>
+      </div>
+      <div id="resourceList" class="resource-list"></div>
+    </section>
+
+    <p class="warning"><strong>Storage note:</strong> This starter version uses browser localStorage, so resources appear only in pages opened on the same browser and website origin. Clearing browser data can remove them. Do not treat this as secure admin authentication or shared production storage.</p>
+  </main>
+
+  <footer>© 2026 MY STUDENT · By Rohit Khokhar</footer>
+  <script src="uploading.js"></script>
+</body>
+</html>
