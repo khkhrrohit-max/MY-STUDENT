@@ -1,126 +1,49 @@
-// ============================================================
-// MY STUDENT ADMIN PANEL
-// LOCAL STORAGE VERSION
-// ============================================================
+// ================================
+// ADMIN PANEL - PART 1
+// Login + Dashboard + User List
+// ================================
 
-
-// ============================================================
-// ADMIN LOGIN DETAILS
-// ============================================================
-
-// Change these two values to your own admin credentials.
-
+// --------------------
+// CHANGE THIS PASSWORD
+// --------------------
 const ADMIN_EMAIL = "khkhrrohit@gmail.com";
-
 const ADMIN_PASSWORD = "Rohit@809931";
 
-
-// ============================================================
-// ADMIN LOGIN
-// ============================================================
-
+// --------------------
+// LOGIN
+// --------------------
 function adminLogin() {
 
-    const email =
-        document
-            .getElementById("adminEmail")
-            .value
-            .trim();
+    const email = document.getElementById("adminEmail").value.trim();
+    const password = document.getElementById("adminPassword").value;
 
-    const password =
-        document
-            .getElementById("adminPassword")
-            .value;
-
-
-    // Empty check
-
-    if (!email || !password) {
-
-        alert("Please enter email and password.");
-
+    if (email !== ADMIN_EMAIL) {
+        alert("Only Admin Can Login");
         return;
-
     }
-
-
-    // Email check
-
-    if (
-        email.toLowerCase() !==
-        ADMIN_EMAIL.toLowerCase()
-    ) {
-
-        alert("Only Admin Can Login.");
-
-        return;
-
-    }
-
-
-    // Password check
 
     if (password !== ADMIN_PASSWORD) {
-
-        alert("Wrong Password.");
-
+        alert("Wrong Password");
         return;
-
     }
 
+    sessionStorage.setItem("adminLoggedIn", "true");
 
-    // Save login session
-
-    sessionStorage.setItem(
-        "adminLoggedIn",
-        "true"
-    );
-
-
-    // Hide login
-
-    document
-        .getElementById("loginPage")
-        .style.display = "none";
-
-
-    // Show dashboard
-
-    document
-        .getElementById("dashboard")
-        .style.display = "block";
-
-
-    // Load data
+    document.getElementById("loginPage").style.display = "none";
+    document.getElementById("dashboard").style.display = "flex";
 
     loadDashboard();
-
 }
 
-
-// ============================================================
-// CHECK ADMIN LOGIN
-// ============================================================
-
+// --------------------
+// CHECK LOGIN
+// --------------------
 window.onload = function () {
 
-    const loggedIn =
-        sessionStorage.getItem(
-            "adminLoggedIn"
-        );
+    if (sessionStorage.getItem("adminLoggedIn") === "true") {
 
-
-    if (loggedIn === "true") {
-
-        document
-            .getElementById("loginPage")
-            .style.display = "none";
-
-
-        document
-            .getElementById("dashboard")
-            .style.display = "block";
-
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("dashboard").style.display = "flex";
 
         loadDashboard();
 
@@ -128,1043 +51,512 @@ window.onload = function () {
 
 };
 
+// --------------------
+// SHOW SECTION
+// --------------------
+function showSection(id){
 
-// ============================================================
+    let sections = document.querySelectorAll(".section");
+
+    sections.forEach(function(sec){
+
+        sec.style.display="none";
+
+    });
+
+    document.getElementById(id).style.display="block";
+
+}
+
+// --------------------
+// LOAD DASHBOARD
+// --------------------
+function loadDashboard(){
+
+    loadUsers();
+
+}
+
+// --------------------
+// LOAD USERS
+// --------------------
+function loadUsers(){
+
+    const tbody = document.getElementById("userBody");
+
+    tbody.innerHTML = "";
+
+    let totalUsers = 0;
+    let totalCoins = 0;
+
+    for(let i=0;i<localStorage.length;i++){
+
+        const key = localStorage.key(i);
+
+        let data;
+
+        try{
+
+            data = JSON.parse(localStorage.getItem(key));
+
+        }catch{
+
+            continue;
+
+        }
+
+        if(!data) continue;
+
+        if(!data.email) continue;
+
+        totalUsers++;
+
+        totalCoins += Number(data.coins || 0);
+
+        tbody.innerHTML += `
+
+        <tr>
+
+        <td>${data.name || "-"}</td>
+
+        <td>${data.email}</td>
+
+        <td id="coin_${i}">
+        ${data.coins || 0}
+        </td>
+
+        <td>
+        ${data.pdfViews || 0}
+        </td>
+
+        <td>
+        ${data.downloads || 0}
+        </td>
+
+        <td>
+        ${data.lastLogin || "Never"}
+        </td>
+
+        <td>
+
+        <button onclick="addCoins('${data.email}')">
+        +50
+        </button>
+
+        <button onclick="removeCoins('${data.email}')">
+        -50
+        </button>
+
+        <button onclick="deleteUser('${data.email}')">
+        Delete
+        </button>
+
+        </td>
+
+        </tr>
+
+        `;
+
+    }
+
+    document.getElementById("totalUsers").innerHTML = totalUsers;
+
+    document.getElementById("totalCoins").innerHTML = totalCoins;
+
+    calculatePDFStats();
+
+}
+
+// --------------------
+// SEARCH USER
+// --------------------
+function searchUser(){
+
+    const input = document.getElementById("searchUser").value.toLowerCase();
+
+    const rows = document.querySelectorAll("#userBody tr");
+
+    rows.forEach(function(row){
+
+        const text = row.innerText.toLowerCase();
+
+        if(text.includes(input)){
+
+            row.style.display="";
+
+        }
+
+        else{
+
+            row.style.display="none";
+
+        }
+
+    });
+
+}
+
+// --------------------
+// PDF TOTALS
+// --------------------
+function calculatePDFStats(){
+
+    let views = 0;
+    let downloads = 0;
+
+    for(let i=0;i<localStorage.length;i++){
+
+        const key = localStorage.key(i);
+
+        let data;
+
+        try{
+
+            data = JSON.parse(localStorage.getItem(key));
+
+        }catch{
+
+            continue;
+
+        }
+
+        if(!data) continue;
+
+        views += Number(data.pdfViews || 0);
+
+        downloads += Number(data.downloads || 0);
+
+    }
+
+    document.getElementById("totalViews").innerHTML = views;
+
+    document.getElementById("totalDownloads").innerHTML = downloads;
+
+}
+// =====================================
+// ADMIN PANEL - PART 2
+// Coins + Delete + Export + Logout
+// =====================================
+
+// ----------------------------
+// ADD COINS
+// ----------------------------
+function addCoins(email){
+
+    let user = JSON.parse(localStorage.getItem(email));
+
+    if(!user) return;
+
+    user.coins = Number(user.coins || 0) + 50;
+
+    localStorage.setItem(email, JSON.stringify(user));
+
+    loadDashboard();
+
+}
+
+
+
+// ----------------------------
+// REMOVE COINS
+// ----------------------------
+function removeCoins(email){
+
+    let user = JSON.parse(localStorage.getItem(email));
+
+    if(!user) return;
+
+    user.coins = Math.max(0, Number(user.coins || 0) - 50);
+
+    localStorage.setItem(email, JSON.stringify(user));
+
+    loadDashboard();
+
+}
+
+
+
+// ----------------------------
+// DELETE USER
+// ----------------------------
+function deleteUser(email){
+
+    if(confirm("Delete this user?")){
+
+        localStorage.removeItem(email);
+
+        loadDashboard();
+
+    }
+
+}
+
+
+
+// ----------------------------
 // LOGOUT
-// ============================================================
+// ----------------------------
+function logout(){
 
-function adminLogout() {
-
-    sessionStorage.removeItem(
-        "adminLoggedIn"
-    );
-
+    sessionStorage.removeItem("adminLoggedIn");
 
     location.reload();
 
 }
 
 
-// ============================================================
-// SHOW SECTION
-// ============================================================
 
-function showSection(id) {
-
-    const sections =
-        document.querySelectorAll(
-            ".section"
-        );
-
-
-    sections.forEach(function(section) {
-
-        section.classList.remove(
-            "active"
-        );
-
-    });
-
-
-    const selected =
-        document.getElementById(id);
-
-
-    if (selected) {
-
-        selected.classList.add(
-            "active"
-        );
-
-    }
-
-
-    loadDashboard();
-
-}
-
-
-// ============================================================
-// LOAD DASHBOARD
-// ============================================================
-
-function loadDashboard() {
-
-    loadUsers();
-
-    loadPDFTable();
-
-    loadCoinTable();
-
-    updateStatistics();
-
-}
-
-
-// ============================================================
-// GET ALL USERS
-// ============================================================
-
-function getAllUsers() {
-
-    const users = [];
-
-
-    for (
-        let i = 0;
-        i < localStorage.length;
-        i++
-    ) {
-
-        const key =
-            localStorage.key(i);
-
-
-        try {
-
-            const data =
-                JSON.parse(
-                    localStorage.getItem(key)
-                );
-
-
-            if (
-                data &&
-                typeof data === "object" &&
-                data.email
-            ) {
-
-                users.push({
-
-                    storageKey: key,
-
-                    ...data
-
-                });
-
-            }
-
-        }
-
-        catch (error) {
-
-            // Ignore invalid localStorage values
-
-        }
-
-    }
-
-
-    return users;
-
-}
-
-
-// ============================================================
-// LOAD ALL USERS
-// ============================================================
-
-function loadUsers() {
-
-    const tbody =
-        document.getElementById(
-            "userBody"
-        );
-
-
-    if (!tbody) return;
-
-
-    tbody.innerHTML = "";
-
-
-    const users =
-        getAllUsers();
-
-
-    users.forEach(function(user) {
-
-        const row =
-            document.createElement("tr");
-
-
-        row.innerHTML = `
-
-            <td>
-                ${escapeHTML(
-                    user.name || "-"
-                )}
-            </td>
-
-            <td>
-                ${escapeHTML(
-                    user.email || "-"
-                )}
-            </td>
-
-            <td>
-                ${Number(
-                    user.coins || 0
-                )}
-            </td>
-
-            <td>
-                ${Number(
-                    user.pdfViews || 0
-                )}
-            </td>
-
-            <td>
-                ${Number(
-                    user.downloads || 0
-                )}
-            </td>
-
-            <td>
-                ${getLoginInfo(user)}
-            </td>
-
-            <td>
-
-                <button
-                    class="smallBtn addBtn"
-                    onclick="addCoins('${escapeAttribute(user.email)}')">
-
-                    +50
-
-                </button>
-
-
-                <button
-                    class="smallBtn removeBtn"
-                    onclick="removeCoins('${escapeAttribute(user.email)}')">
-
-                    -50
-
-                </button>
-
-
-                <button
-                    class="smallBtn deleteBtn"
-                    onclick="deleteUser('${escapeAttribute(user.email)}')">
-
-                    Delete
-
-                </button>
-
-            </td>
-
-        `;
-
-
-        tbody.appendChild(row);
-
-    });
-
-}
-
-
-// ============================================================
-// LOGIN INFORMATION
-// ============================================================
-
-function getLoginInfo(user) {
-
-    if (user.isLoggedIn === true) {
-
-        return "Online";
-
-    }
-
-
-    if (user.loggedIn === true) {
-
-        return "Online";
-
-    }
-
-
-    if (user.lastLogin) {
-
-        return escapeHTML(
-            String(
-                user.lastLogin
-            )
-        );
-
-    }
-
-
-    if (user.loginTime) {
-
-        return escapeHTML(
-            String(
-                user.loginTime
-            )
-        );
-
-    }
-
-
-    return "-";
-
-}
-
-
-// ============================================================
-// FIND USER KEY
-// ============================================================
-
-function findUserKey(email) {
-
-    for (
-        let i = 0;
-        i < localStorage.length;
-        i++
-    ) {
-
-        const key =
-            localStorage.key(i);
-
-
-        try {
-
-            const data =
-                JSON.parse(
-                    localStorage.getItem(key)
-                );
-
-
-            if (
-                data &&
-                data.email &&
-                data.email.toLowerCase() ===
-                email.toLowerCase()
-            ) {
-
-                return key;
-
-            }
-
-        }
-
-        catch (error) {}
-
-    }
-
-
-    return null;
-
-}
-
-
-// ============================================================
-// ADD 50 COINS
-// ============================================================
-
-function addCoins(email) {
-
-    const key =
-        findUserKey(email);
-
-
-    if (!key) {
-
-        alert("User not found.");
-
-        return;
-
-    }
-
-
-    try {
-
-        const user =
-            JSON.parse(
-                localStorage.getItem(key)
-            );
-
-
-        user.coins =
-            Number(
-                user.coins || 0
-            ) + 50;
-
-
-        localStorage.setItem(
-            key,
-            JSON.stringify(user)
-        );
-
-
-        loadDashboard();
-
-    }
-
-    catch (error) {
-
-        console.error(error);
-
-        alert(
-            "Unable to add coins."
-        );
-
-    }
-
-}
-
-
-// ============================================================
-// REMOVE 50 COINS
-// ============================================================
-
-function removeCoins(email) {
-
-    const key =
-        findUserKey(email);
-
-
-    if (!key) {
-
-        alert("User not found.");
-
-        return;
-
-    }
-
-
-    try {
-
-        const user =
-            JSON.parse(
-                localStorage.getItem(key)
-            );
-
-
-        let coins =
-            Number(
-                user.coins || 0
-            );
-
-
-        coins -= 50;
-
-
-        if (coins < 0) {
-
-            coins = 0;
-
-        }
-
-
-        user.coins = coins;
-
-
-        localStorage.setItem(
-            key,
-            JSON.stringify(user)
-        );
-
-
-        loadDashboard();
-
-    }
-
-    catch (error) {
-
-        console.error(error);
-
-        alert(
-            "Unable to remove coins."
-        );
-
-    }
-
-}
-
-
-// ============================================================
-// DELETE USER
-// ============================================================
-
-function deleteUser(email) {
-
-    const key =
-        findUserKey(email);
-
-
-    if (!key) {
-
-        alert("User not found.");
-
-        return;
-
-    }
-
-
-    const confirmed =
-        confirm(
-            "Are you sure you want to delete:\n\n" +
-            email +
-            "?"
-        );
-
-
-    if (!confirmed) {
-
-        return;
-
-    }
-
-
-    localStorage.removeItem(key);
-
-
-    loadDashboard();
-
-
-    alert(
-        "User deleted successfully."
-    );
-
-}
-
-
-// ============================================================
-// SEARCH USERS
-// ============================================================
-
-function searchUser() {
-
-    const search =
-        document
-            .getElementById(
-                "searchUser"
-            )
-            .value
-            .toLowerCase()
-            .trim();
-
-
-    const rows =
-        document.querySelectorAll(
-            "#userBody tr"
-        );
-
-
-    rows.forEach(function(row) {
-
-        const text =
-            row.textContent
-                .toLowerCase();
-
-
-        if (
-            text.includes(search)
-        ) {
-
-            row.style.display = "";
-
-        }
-
-        else {
-
-            row.style.display = "none";
-
-        }
-
-    });
-
-}
-
-
-// ============================================================
-// PDF TABLE
-// ============================================================
-
-function loadPDFTable() {
-
-    const body =
-        document.getElementById(
-            "pdfBody"
-        );
-
-
-    if (!body) return;
-
-
-    body.innerHTML = "";
-
-
-    const users =
-        getAllUsers();
-
-
-    users.forEach(function(user) {
-
-        const row =
-            document.createElement("tr");
-
-
-        row.innerHTML = `
-
-            <td>
-                ${escapeHTML(
-                    user.name || "-"
-                )}
-            </td>
-
-            <td>
-                ${escapeHTML(
-                    user.email || "-"
-                )}
-            </td>
-
-            <td>
-                ${escapeHTML(
-                    user.lastPDF ||
-                    user.lastPdf ||
-                    "-"
-                )}
-            </td>
-
-            <td>
-                ${Number(
-                    user.pdfViews || 0
-                )}
-            </td>
-
-            <td>
-                ${Number(
-                    user.downloads || 0
-                )}
-            </td>
-
-        `;
-
-
-        body.appendChild(row);
-
-    });
-
-}
-
-
-// ============================================================
-// COIN TABLE
-// ============================================================
-
-function loadCoinTable() {
-
-    const body =
-        document.getElementById(
-            "coinBody"
-        );
-
-
-    if (!body) return;
-
-
-    body.innerHTML = "";
-
-
-    const users =
-        getAllUsers();
-
-
-    users.forEach(function(user) {
-
-        const row =
-            document.createElement("tr");
-
-
-        row.innerHTML = `
-
-            <td>
-                ${escapeHTML(
-                    user.name || "-"
-                )}
-            </td>
-
-            <td>
-                ${escapeHTML(
-                    user.email || "-"
-                )}
-            </td>
-
-            <td>
-                ${Number(
-                    user.coins || 0
-                )}
-            </td>
-
-            <td>
-
-                <button
-                    class="smallBtn addBtn"
-                    onclick="addCoins('${escapeAttribute(user.email)}')">
-
-                    +50
-
-                </button>
-
-            </td>
-
-            <td>
-
-                <button
-                    class="smallBtn removeBtn"
-                    onclick="removeCoins('${escapeAttribute(user.email)}')">
-
-                    -50
-
-                </button>
-
-            </td>
-
-        `;
-
-
-        body.appendChild(row);
-
-    });
-
-}
-
-
-// ============================================================
-// STATISTICS
-// ============================================================
-
-function updateStatistics() {
-
-    const users =
-        getAllUsers();
-
-
-    let totalCoins = 0;
-
-    let totalPDFViews = 0;
-
-    let totalDownloads = 0;
-
-
-    users.forEach(function(user) {
-
-        totalCoins +=
-            Number(
-                user.coins || 0
-            );
-
-
-        totalPDFViews +=
-            Number(
-                user.pdfViews || 0
-            );
-
-
-        totalDownloads +=
-            Number(
-                user.downloads || 0
-            );
-
-    });
-
-
-    document
-        .getElementById(
-            "totalUsers"
-        )
-        .textContent =
-        users.length;
-
-
-    document
-        .getElementById(
-            "totalCoins"
-        )
-        .textContent =
-        totalCoins;
-
-
-    document
-        .getElementById(
-            "totalPDFViews"
-        )
-        .textContent =
-        totalPDFViews;
-
-
-    document
-        .getElementById(
-            "totalDownloads"
-        )
-        .textContent =
-        totalDownloads;
-
-}
-
-
-// ============================================================
+// ----------------------------
 // EXPORT USER DATA
-// ============================================================
+// ----------------------------
+function exportUsers(){
 
-function exportUsers() {
+    let users = [];
 
-    const users =
-        getAllUsers();
+    for(let i=0;i<localStorage.length;i++){
 
+        const key = localStorage.key(i);
 
-    if (users.length === 0) {
+        try{
 
-        alert(
-            "No users found."
-        );
+            const user = JSON.parse(localStorage.getItem(key));
 
-        return;
+            if(user && user.email){
+
+                users.push(user);
+
+            }
+
+        }
+
+        catch(e){}
 
     }
 
-
-    // Never export passwords
-
-    const safeUsers =
-        users.map(function(user) {
-
-            const copy =
-                { ...user };
-
-
-            delete copy.password;
-
-            delete copy.pass;
-
-            delete copy.userPassword;
-
-
-            return copy;
-
-        });
-
-
-    const json =
-        JSON.stringify(
-            safeUsers,
-            null,
-            4
-        );
-
+    const data =
+    JSON.stringify(users,null,4);
 
     const blob =
-        new Blob(
-            [json],
-            {
-                type:
-                    "application/json"
-            }
-        );
-
+    new Blob([data],{
+        type:"application/json"
+    });
 
     const url =
-        URL.createObjectURL(blob);
+    URL.createObjectURL(blob);
 
+    const a =
+    document.createElement("a");
 
-    const link =
-        document.createElement("a");
+    a.href = url;
 
+    a.download = "users.json";
 
-    link.href = url;
-
-    link.download =
-        "my-student-users.json";
-
-
-    document.body.appendChild(link);
-
-    link.click();
-
-    document.body.removeChild(link);
-
+    a.click();
 
     URL.revokeObjectURL(url);
 
 }
 
 
-// ============================================================
+
+// ----------------------------
 // DELETE ALL USERS
-// ============================================================
+// ----------------------------
+function clearAllUsers(){
 
-function clearAllUsers() {
+    const pass =
+    prompt("Enter Admin Password");
 
-    const users =
-        getAllUsers();
+    if(pass !== ADMIN_PASSWORD){
 
-
-    if (users.length === 0) {
-
-        alert(
-            "No users found."
-        );
+        alert("Wrong Password");
 
         return;
 
     }
 
+    if(confirm("Delete ALL Users?")){
 
-    const first =
-        confirm(
-            "WARNING!\n\n" +
-            "This will delete ALL users " +
-            "stored in this browser.\n\n" +
-            "Continue?"
-        );
+        let removeKeys=[];
 
+        for(let i=0;i<localStorage.length;i++){
 
-    if (!first) {
+            const key =
+            localStorage.key(i);
 
-        return;
+            try{
 
-    }
+                const user =
+                JSON.parse(localStorage.getItem(key));
 
+                if(user && user.email){
 
-    const second =
-        confirm(
-            "Are you absolutely sure?"
-        );
+                    removeKeys.push(key);
 
+                }
 
-    if (!second) {
+            }
 
-        return;
-
-    }
-
-
-    users.forEach(function(user) {
-
-        localStorage.removeItem(
-            user.storageKey
-        );
-
-    });
-
-
-    loadDashboard();
-
-
-    alert(
-        "All users deleted."
-    );
-
-}
-
-
-// ============================================================
-// SECURITY: ESCAPE HTML
-// ============================================================
-
-function escapeHTML(value) {
-
-    return String(value)
-
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-
-        .replace(
-            /</g,
-            "&lt;"
-        )
-
-        .replace(
-            />/g,
-            "&gt;"
-        )
-
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-
-        .replace(
-            /'/g,
-            "&#039;"
-        );
-
-}
-
-
-// ============================================================
-// SECURITY: ESCAPE ATTRIBUTE
-// ============================================================
-
-function escapeAttribute(value) {
-
-    return String(value)
-
-        .replace(
-            /\\/g,
-            "\\\\"
-        )
-
-        .replace(
-            /'/g,
-            "\\'"
-        );
-
-}
-
-
-// ============================================================
-// SHOW ADMIN EMAIL
-// ============================================================
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
-
-        const element =
-            document.getElementById(
-                "adminEmailDisplay"
-            );
-
-
-        if (element) {
-
-            element.textContent =
-                ADMIN_EMAIL;
+            catch(e){}
 
         }
 
+        removeKeys.forEach(function(key){
+
+            localStorage.removeItem(key);
+
+        });
+
+        loadDashboard();
+
     }
-);
+
+}
 
 
-// ============================================================
-// AUTO REFRESH EVERY 5 SECONDS
-// ============================================================
 
-setInterval(
-    function() {
+// ----------------------------
+// PDF TABLE
+// ----------------------------
+function loadPDFTable(){
 
-        const dashboard =
-            document.getElementById(
-                "dashboard"
-            );
+    const body =
+    document.getElementById("pdfBody");
 
+    if(!body) return;
 
-        if (
-            dashboard &&
-            dashboard.style.display !==
-            "none"
-        ) {
+    body.innerHTML="";
 
-            loadDashboard();
+    for(let i=0;i<localStorage.length;i++){
+
+        const key =
+        localStorage.key(i);
+
+        try{
+
+            const user =
+            JSON.parse(localStorage.getItem(key));
+
+            if(!user || !user.email) continue;
+
+            body.innerHTML += `
+
+            <tr>
+
+            <td>${user.name}</td>
+
+            <td>${user.email}</td>
+
+            <td>${user.lastPDF || "-"}</td>
+
+            <td>${user.pdfViews || 0}</td>
+
+            <td>${user.downloads || 0}</td>
+
+            </tr>
+
+            `;
 
         }
 
-    },
-    5000
-);
+        catch(e){}
+
+    }
+
+}
+
+
+
+// ----------------------------
+// COIN TABLE
+// ----------------------------
+function loadCoinTable(){
+
+    const body =
+    document.getElementById("coinBody");
+
+    if(!body) return;
+
+    body.innerHTML="";
+
+    for(let i=0;i<localStorage.length;i++){
+
+        const key =
+        localStorage.key(i);
+
+        try{
+
+            const user =
+            JSON.parse(localStorage.getItem(key));
+
+            if(!user || !user.email) continue;
+
+            body.innerHTML += `
+
+            <tr>
+
+            <td>${user.name}</td>
+
+            <td>${user.email}</td>
+
+            <td>${user.coins}</td>
+
+            <td>
+
+            <button onclick="addCoins('${user.email}')">
+            +50
+            </button>
+
+            </td>
+
+            <td>
+
+            <button onclick="removeCoins('${user.email}')">
+            -50
+            </button>
+
+            </td>
+
+            </tr>
+
+            `;
+
+        }
+
+        catch(e){}
+
+    }
+
+}
+
+
+
+// ----------------------------
+// REFRESH
+// ----------------------------
+const oldLoad = loadDashboard;
+
+loadDashboard = function(){
+
+    oldLoad();
+
+    loadPDFTable();
+
+    loadCoinTable();
+
+};
+
+
+
+// ----------------------------
+// AUTO REFRESH
+// ----------------------------
+setInterval(function(){
+
+    if(sessionStorage.getItem("adminLoggedIn")=="true"){
+
+        loadDashboard();
+
+    }
+
+},5000);
